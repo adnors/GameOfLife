@@ -66,6 +66,9 @@ public class Spielfeld {
 	/* 2788085
 	 * Gibt zurück, ob eine Zelle lebt (Inhalt = leben)
 	 * oder ein Arrayelement kein Inhalt besitzt (Null) 
+	 * 
+	 * 7866387
+	 * Guter Stil wäre, wenn man in einer Methode nur einmal ein return hat.
 	 */
 	public boolean zelleLebt(int reihe, int spalte) {
 		
@@ -86,8 +89,11 @@ public class Spielfeld {
 	 *  |_ _ _|
 	 *   1 2 3
 	 *   
-	 *   Zunächst prüft das IF Statement, ob die Positionen rund um die Zelle lebende Zellen sind
-	 *   und zählt bei einem Treffer die Zählvariable hoch. Diese wird zum Schluss als Integer Wert zurück gegeben
+	 * Zunächst prüft das IF Statement, ob die Positionen rund um die Zelle lebende Zellen sind
+	 * und zählt bei einem Treffer die Zählvariable hoch. Diese wird zum Schluss als Integer Wert zurück gegeben
+	 *   
+	 * 7866387
+	 * Ich würde das mit 2 for-Schleife machen, die eine zählt Reihe hoch und die andere Spalte.
 	 */
 	public int returnNachbaranzahl(int reihe, int spalte) {
 		
