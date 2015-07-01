@@ -8,14 +8,14 @@ import java.io.IOException;
 /**
  * Die Datei mit der Vorlage für die Erste runte des GamesOfLife auslesen, 
  * die Größe des Arrays ermitteln und die Werte dann auslesen und damit die 
- * lebendigen Zellen im Feld erstellen
+ * lebendigen Zellen im Spielfeld erstellen
  * @author 1443023
  *
  */
 public class Einlesen {
 
 	//Deklaration der Variablen
-	private Feld fe;				//Abspeichern der Zellen in dem Feld
+	private Spielfeld feld;				//Abspeichern der Zellen in dem feld
 	private String zeile;			//Auslesen der Zeilen in der Datei
 	private int anzahlZeile;	//Ermitteln der Anzahl der Zeilen
 	private int anzahlZeichen;	//Ermitteln der Zeichen pro Zeile	
@@ -66,8 +66,8 @@ public class Einlesen {
 			//Neue Verbindung zur Datei Aufbauen, zum Auslesen der Daten
 			bufferAuslesen = new BufferedReader(new FileReader(dateiName));
 
-			//Das Objekt Feld mit der ermittelten Größe erstellen
-			fe = new Feld(anzahlZeile, anzahlZeichen);
+			//Das Objekt feld mit der ermittelten Größe erstellen
+			feld = new Spielfeld(anzahlZeile, anzahlZeichen);
 			//Zeile für zeile durchgehen
 			for (int k = 0; k < anzahlZeile; k++) {
 				// Zur Nächsten Zeile springen und auslesen
@@ -78,7 +78,7 @@ public class Einlesen {
 					if (('*' == zeile.charAt(i))) 
 					{
 						//Neue Zelle erstellen
-						fe.gebäreZelle(k, i);
+						feld.gebäreZelle(k, i);
 
 					} else {
 						//Prüfen ob ein Falsches zeichen, also alle auser * oder . vorhanden ist
