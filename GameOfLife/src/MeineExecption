@@ -1,0 +1,29 @@
+
+/**
+ * Zum Werfen der einzelnen Exception mit eigenem Text
+ * @author 1443023
+ */
+public class MeineException extends Exception{
+	
+	private String zusatzinfo;
+	/**
+	 * Weißt die Zusatzinfo vom aufruf dem Fehler zu
+	 * @param zusatzinfo Meldung für den Fehler
+	 * @author 1443023
+	 */
+	public MeineException(String zusatzinfo)
+	{
+		this.zusatzinfo = zusatzinfo;
+		
+	}
+	/**
+	 * Gibt den Text von der Fehlermeldung zurück
+	 * @return String, welcher die Fehlermeldung passend zu dem Fehler enthält
+	 * @author 1443023
+	 */
+	public String getZusatz()
+	{
+		return this.zusatzinfo;
+	}
+
+}
