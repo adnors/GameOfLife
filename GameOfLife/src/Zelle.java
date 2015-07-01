@@ -26,7 +26,7 @@ public class Zelle {
 	
 	/* 2788085
 	Zelle wird eine Zeiteinheit älter*/
-	public Zelle setAlter() {
+	public Zelle zaehleAlterHoch() {
 		alter++;
 		return this;
 	}
