@@ -8,18 +8,18 @@ public class Spielfeld {
 	
 	
 	/* 2788085
-	 * Erstellt ein Spielfeld, gefüllt mit Zellen (Mindestalter = 1)
-	 * und wird je nach Übergabewert flexibel dimensioniert 
+	 * Erstellt ein Spielfeld, gefÃ¼llt mit Zellen (Mindestalter = 1)
+	 * und wird je nach Ãœbergabewert flexibel dimensioniert 
 	 * Alle anderen Spielfelder, die keine Zellen enthalten werden 
-	 * standardmäßig durch die Null gekennzeichnet 
-	 * Übergeben wird die Anzahl der Reihen und Spalten des Spielfelds
+	 * standardmÃ¤ÃŸig durch die Null gekennzeichnet 
+	 * Ãœbergeben wird die Anzahl der Reihen und Spalten des Spielfelds
 	 */
 	public Spielfeld(int anzahlSpalte, int anzahlReihe) {
 		Spielfeld = new Zelle[anzahlReihe][anzahlSpalte];
 	}
 	
 	/* 2788085
-	 * liefert die Zelle in einem angefragten Speicherplatz des Spielfeld-Arrays zurück
+	 * liefert die Zelle in einem angefragten Speicherplatz des Spielfeld-Arrays zurÃ¼ck
 	 */
 	public Zelle liefereZelleZurueck (int reihe, int spalte) {
 		
@@ -27,18 +27,18 @@ public class Spielfeld {
 	} 
 		
 	/* 2788085
-	 * Löscht/Tötet eine Zelle an einer bestimmten Position im Spielfeld
+	 * LÃ¶scht/TÃ¶tet eine Zelle an einer bestimmten Position im Spielfeld
 	 */
-	public void töteZelle (int reihe, int spalte) {
+	public void tÃ¶teZelle (int reihe, int spalte) {
 		
 		Spielfeld[reihe][spalte] = null;
 	}
 	
 	/* 2788085
 	 * Speichert Zelle im Spielfeldarray
-	 * Wird für zwei Methoden benutzt:
-	 * - gebäreZelle (Geburt einer neuen Zelle)
-	 * - altereZelle (Vorhandene Zelle altert und wird im Array überschrieben)
+	 * Wird fÃ¼r zwei Methoden benutzt:
+	 * - gebÃ¤reZelle (Geburt einer neuen Zelle)
+	 * - altereZelle (Vorhandene Zelle altert und wird im Array Ã¼berschrieben)
 	 */
 	public void speichereZelle (int reihe, int spalte, Zelle z) {
 		
@@ -48,13 +48,13 @@ public class Spielfeld {
 	/* 2788085
 	 * Generiert neue Zelle im Spielfeld (Alter = 1)
 	 */
-	public void gebäreZelle (int reihe, int spalte) {
+	public void gebÃ¤reZelle (int reihe, int spalte) {
 		
 		speichereZelle(reihe, spalte, new Zelle());
 	}
 	
 	/* 2788085
-	 * Zelle auf bestimmter Position im Feldarray wird älter
+	 * Zelle auf bestimmter Position im Feldarray wird Ã¤lter
 	 * Aufruf: jeweilige Zelle der Reihe und Spalte nehmen 
 	 * -> Zelle altern lassen (zaehleAlterHoch) und abspeichern
 	 */
@@ -64,11 +64,11 @@ public class Spielfeld {
 	}
 	
 	/* 2788085
-	 * Gibt zurück, ob eine Zelle lebt (Inhalt = leben)
+	 * Gibt zurÃ¼ck, ob eine Zelle lebt (Inhalt = leben)
 	 * oder ein Arrayelement kein Inhalt besitzt (Null) 
 	 * 
 	 * 7866387
-	 * Guter Stil wäre, wenn man in einer Methode nur einmal ein return hat.
+	 * Guter Stil wÃ¤re, wenn man in einer Methode nur einmal ein return hat.
 	 */
 	public boolean zelleLebt(int reihe, int spalte) {
 		
@@ -81,58 +81,87 @@ public class Spielfeld {
 	}
 	
 	/* 2788085
-	 * Gibt die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle zurück (Maximal 8 Nachbarn)
+	 * Gibt die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle zurÃ¼ck (Maximal 8 Nachbarn)
 	 *   6 7 8  
 	 *   _ _ _
 	 *  |     |
 	 * 4|  o  |5
 	 *  |_ _ _|
 	 *   1 2 3
-	 *   
-	 * Zunächst prüft das IF Statement, ob die Positionen rund um die Zelle lebende Zellen sind
-	 * und zählt bei einem Treffer die Zählvariable hoch. Diese wird zum Schluss als Integer Wert zurück gegeben
+	 *
+	 * Die benachbarten Zellen werden Ã¼ber zwei For Schleifen durchlaufen und geprÃ¼ft ob es sich um 
+	 * lebendige Zellen handelt. Ist dies der Fall, wird eine ZÃ¤hlvariable hoch gezÃ¤hlt
+	 * und nach Beendigung der Schleifen als Integer Wert zurÃ¼ck gegeben.
 	 *   
 	 * 7866387
-	 * Ich würde das mit 2 for-Schleife machen, die eine zählt Reihe hoch und die andere Spalte.
+	 * Ich wÃ¼rde das mit 2 for-Schleife machen, die eine zÃ¤hlt Reihe hoch und die andere Spalte
+	 
+	 * 2788085
+	 * erledigt
 	 */
+	 public int returnNachbaranzahl(int reihe, int spalte) {
+		
+		int zÃ¤hler = 0; //ZÃ¤hler auf 0
+		
+		
+		for (int i = (reihe -1); i < (reihe +2); i++) {			// Reihen oberhalb, mittig und unterhalb
+			for (int j = (spalte -1); j < (spalte +2); j++) {	// Spalten links, mittig und rechts
+				if (zelleLebt(i, j)) {				// Wenn der Nachbar lebt...
+					if (i == reihe & j == spalte) {		// Wenn es sich um die Zelle selbst handelt, Ã¼berspringe ZÃ¤hlschritt
+						
+					}
+					else {
+						zÃ¤hler++;			// .. erhÃ¶he ZÃ¤hlervariable
+					}
+					
+				}
+			}
+		}
+		return zÃ¤hler;							// Gibt Anzahl der Nachbarn zurÃ¼ck
+	}
+	
+	/* 2788085 (Alternative)
+	 * ZunÃ¤chst prÃ¼ft das IF Statement, ob die Positionen rund um die Zelle lebende Zellen sind
+	 * und zÃ¤hlt bei einem Treffer die ZÃ¤hlvariable hoch. Diese wird zum Schluss als Integer Wert zurÃ¼ck gegeben
+	
 	public int returnNachbaranzahl(int reihe, int spalte) {
 		
-		int zähler = 0; //Zähler auf 0
+		int zÃ¤hler = 0; //ZÃ¤hler auf 0
 		
 		
 		// 1. Zelle unten links ist vorhanden
 		if (zelleLebt(reihe+1, spalte-1)) {
-			zähler++;
+			zÃ¤hler++;
 		}
 		// 2. Zelle unterhalb ist vorhanden
 		if (zelleLebt(reihe+1, spalte)) {
-			zähler++;
+			zÃ¤hler++;
 		}
 		// 3. Zelle unten rechts ist vorhanden
 		if (zelleLebt(reihe-1, spalte+1)) {
-			zähler++;
+			zÃ¤hler++;
 		}
 		// _4. Zelle links daneben vorhanden
 		if (zelleLebt(reihe, spalte-1)) {
-			zähler++;
+			zÃ¤hler++;
 		}
 		// 5. Zelle rechts daneben vorhanden
 		if (zelleLebt(reihe, spalte+1)) {
-			zähler++;
+			zÃ¤hler++;
 		}
 		// 6. Zelle oben links vorhanden 
 		if (zelleLebt(reihe-1, spalte-1)) {
-			zähler++;
+			zÃ¤hler++;
 		}
 		// 7. Zelle oberhalb vorhanden
 		if (zelleLebt(reihe-1, spalte)) {
-			zähler++;
+			zÃ¤hler++;
 		}
 		// 8. Zelle oben rechts vorhanden
 		if (zelleLebt(reihe-1, spalte+1)) {
-			zähler++;
+			zÃ¤hler++;
 		}
 		
-		return zähler;
-	}
+		return zÃ¤hler;
+	}*/
 }
