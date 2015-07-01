@@ -4,7 +4,7 @@ public class Spielfeld {
 	/* 2788085
 	 * Spielfeld ist ein 2 Dimensionales Array mit den Inhalten vom Objekt Zelle
 	 */
-	private Zelle[][] Spielfeld;
+	private cell[][] Spielfeld;
 	
 	
 	/* 2788085
