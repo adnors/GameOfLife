@@ -1,34 +1,52 @@
-
+/**
+ * Eine Zelle ist ein lebendes Objekt, mit der Eigenschaft zu altern.
+ * Eine geborene Zelle hat das Alter 1. Die Klasse Zelle dient als Grundlage
+ * fÃ¼r das erstellen eines Spielfelds, als Array, bestehend aus Zellen.
+ * 
+ * @author 2788085
+ *
+ */
 public class Zelle {
 	
-	/* 2788085
-	 * gibt Alter der jeweiligen Zelle im Spielfeld an
+	/**
+	 * Deklarieren der Variable alter, als Eigenschaft einer Zelle. 
+	 * Sie gibt das jeweilige Alter der Zelle im Spielfeld an.
+	 * @author 2788085
 	 */
 	private int alter;
 	
-	/* 2788085
-	 * Standardkonstruktor für Zelle mit dem Alter 1 
+	/**
+	 * Standardkonstruktor, ohne Ãœbergabewert. Eine neu erstellte Zelle hat 
+	 * immer das Alter 1
+	 * 
+	 * @author 2788085
 	 */
 	public Zelle () {
 		this.alter = 1;
 	}
 	
-	/* 2788085
-	 * Lebendige Zellen mit Übergabe des jeweiligen Alters
+	/**
+	 * Ãœberladener Konstruktor dient zur Erstellung einer Zelle mit bestimmtem Alter.
+	 * @param alter Alter einer Zelle
+	 * @author 2788085
 	 */
 	public Zelle(int alter) {
 		this.alter = alter;
 	}
 	
-	/* 2788085
-	 * Gibt das aktuelle Alter einer Zelle zurück
+	/**
+	 * Methode zur Bestimmung des Alters einer Zelle
+	 * @return Gibt das aktuelle Alter einer Zelle als Integerwert zurÃ¼ck
+	 * @author 2788085
 	 */
 	public int getAlter() {
 		return alter;
 	}
 	
-	/* 2788085
-	 * Zelle wird eine Zeiteinheit älter
+	/**
+	 * LÃ¤sst das Alter einer bestehenden Zelle um 1 erhoehen
+	 * @return Gibt das Aktuelle Alter + 1 zurÃ¼ck
+	 * @author 2788085
 	 */
 	public Zelle zaehleAlterHoch() {
 		alter++;
