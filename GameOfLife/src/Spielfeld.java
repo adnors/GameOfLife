@@ -130,6 +130,7 @@ public class Spielfeld {
 	 * @param reihe
 	 * @param spalte
 	 * @return Gibt die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle als Integerwert zurück (Maximal 8 Nachbarn)
+	 * @author 2788085
 	 */
 	public int returnNachbaranzahl(int reihe, int spalte) {
 		
@@ -188,5 +189,24 @@ public class Spielfeld {
 		
 		return zähler;
 		*/
+	
+	/**
+	 * Berechnet die Anzahl der Reihen im Spielfeld
+	 * @return Gibt die Anzahl der Reihen als Integerwert zurück
+	 * @author 2788085
+	 */
+	public int anzahlReihen () {		
+		return Spielfeld.length;
+	}
+	
+	/**
+	 * Berechnet die Anzahl der Reihen im Spielfeld
+	 * @return Gibt die Anzahl der Reihen als Integerwert zurück
+	 * @author 2788085
+	 */	
+	public int anzahlSpalten () {
+		return Spielfeld[0].length;
+	}
+		
 	
 }
