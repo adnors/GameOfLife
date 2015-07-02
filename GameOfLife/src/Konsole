@@ -8,7 +8,7 @@
  * @author 2788085
  *
  */
-public class Konsole {
+public class Konsole extends Ausgabe {
 
 	
 	/**
@@ -20,10 +20,7 @@ public class Konsole {
 	 * '#': Zelle mit Alter = 4
 	 * @author 2788085
 	 */
-	
-	// ZUM TESTEN ARRAY ERSTELLEN:
-	private Zelle [][] feld = new Zelle[4][5];
-	
+		
 	private char [] Zeichenarray = { ' ', '.' , '+' , '*' , '#' };
 	
 	public Konsole() {
@@ -37,22 +34,18 @@ public class Konsole {
 	 * @author 2788085
 	 */
 	
-	/* später überschreiben wenn klasse Ausgabe vorhanden ist
-	 * @Override
-	 */
-	public void zeichneArray(Spielfeld feld) {
-		for (int i = 0; i < feld.anzahlReihen(); i++) {											//Geht Reihen nacheinander durch 
-			for (int j = 0; j < feld.anzahlSpalten(); j++) {									//Geht einzelne Elemente in der Reihe durch
-				if (feld.zelleLebt(i, j)) {														//Wenn Zelle lebt, gebe entsprechendes Zeichen, abhängig vom Alter der Zelle, aus dem Zeichenarray aus
-					System.out.print(Zeichenarray[feld.liefereZelleZurueck(i, j).getAlter()]);
+	@Override 
+	public void zeichneArray (Spielfeld feld) {
+		for (int i = 0; i < feld.anzahlReihen(); i++) {			//Geht Reihen nacheinander durch 
+			for (int j = 0; j < feld.anzahlSpalten(); j++) {	//Geht einzelne Elemente in der Reihe durch
+				if (feld.zelleLebt(i, j)) {			//Wenn Zelle lebt, gebe entsprechendes Zeichen, abhängig vom Alter der Zelle, aus dem Zeichenarray aus
+					System.out.print(Zeichenarray[feld.liefereZelleZurueck(i, j).getAlter()]); 
 				}
-				else {																			//Wenn keine Zelle auf der Position [i][j] vorhanden ist, gebe Zeichen ' ' aus
+				else {						//Wenn keine Zelle auf der Position [i][j] vorhanden ist, gebe Zeichen ' ' aus
 					System.out.println(Zeichenarray[0]);
 				}
-			} System.out.println("/n");															//Nach jedem Durchlauf einer Reihe einen Zeilenumbruch ausgeben
+			} System.out.println("/n");				//Nach jedem Durchlauf einer Reihe einen Zeilenumbruch ausgeben
 		}
 	}
-	
-	
-	
+
 }
