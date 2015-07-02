@@ -14,9 +14,9 @@ public class Spielfeld {
 	private Zelle[][] Spielfeld;
 	
 	/**
-	 * Überladener Konstruktor zum erstellen eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
-	 * mit den Übergabewerten anzahlSpalte (Anzahl der Spalten) und anzahlReihe (Anzahl der Reihen). 
-	 * Das Spielfeld wird hier flexibel dimensioniert und jedes Element mit "Null" gefüllt.
+	 * Ueberladener Konstruktor zum erstellen eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
+	 * mit den Uebergabewerten anzahlSpalte (Anzahl der Spalten) und anzahlReihe (Anzahl der Reihen). 
+	 * Das Spielfeld wird hier flexibel dimensioniert und jedes Element mit "Null" gefuellt.
 	 * 
 	 * @param anzahlSpalte Anzahl der Spalten des Spielfeldes
 	 * @param anzahlReihe Anzahl der Reihen des Spielfeldes
@@ -27,12 +27,12 @@ public class Spielfeld {
 	}
 	
 	/**
-	 * Liefert die Zelle an einem bestimmten, angefragten Speicherplatz im Spielfeldarray zurück
+	 * Liefert die Zelle an einem bestimmten, angefragten Speicherplatz im Spielfeldarray zurueck
 	 * Wenn keine Zelle an diesem Ort vorhanden ist wird NULL zurpck gegeben
 	 * 
 	 * @param reihe Reihe, in der sich die Zelle im Array befindet
 	 * @param spalte Spalte, in der sich die Zelle im Array befindet
-	 * @return Gibt die Zelle/NULL an einem bestimmten Ort (Reihe/Spalte) zurück
+	 * @return Gibt die Zelle/NULL an einem bestimmten Ort (Reihe/Spalte) zurueck
 	 * @author 2788085
 	 */
 	public Zelle liefereZelleZurueck (int reihe, int spalte) {
@@ -41,22 +41,22 @@ public class Spielfeld {
 	} 
 		
 	/**
-	 * Löscht/tötet eine Zelle an einer bestimmten Position im Spielfeld
+	 * Loescht/toetet eine Zelle an einer bestimmten Position im Spielfeld
 	 * und ersetzt diese durch NULL
 	 * @param reihe Reihe, in der sich die Zelle im Array befindet
 	 * @param spalte Spalte, in der sich die Zelle im Array befindet
 	 * @author 2788085
 	 */
-	public void töteZelle (int reihe, int spalte) {
+	public void toeteZelle (int reihe, int spalte) { // Ich bin mir unsicher, ob diese Methode benoetigt wird. (7866387)
 		
 		Spielfeld[reihe][spalte] = null;
 	}
 	
 	/**
-	 * Speichert eine übergebene Zelle im Spielfeldarray an der Position Spielfeld [reihe][spalte]
-	 * Wird für folgende Methoden verwendet:
-	 * - gebäreZelle (Geburt einer neuen Zelle im Spielfeld)
-	 * - altereZelle (Vorhandene Zelle altert und wird im Array überschrieben)
+	 * Speichert eine uebergebene Zelle im Spielfeldarray an der Position Spielfeld [reihe][spalte]
+	 * Wird fuer folgende Methoden verwendet:
+	 * - gebaereZelle (Geburt einer neuen Zelle im Spielfeld)
+	 * - altereZelle (Vorhandene Zelle altert und wird im Array ueberschrieben)
 	 * 
 	 * @param reihe Reihe in der die Zelle gespeichert werden soll
 	 * @param spalte Spalte, in der die Zelle gespeichert werden soll
@@ -70,20 +70,20 @@ public class Spielfeld {
 	
 	/**
 	 * Generiert eine neue Zelle im Spielfeld
-	 * Das Alter der neuen Zelle wird über den Standardkonstruktor der Zelle auf 1 gesetzt
+	 * Das Alter der neuen Zelle wird ueber den Standardkonstruktor der Zelle auf 1 gesetzt
 	 * 
 	 * @param reihe Reihe in der die Zelle gespeichert werden soll
 	 * @param spalte Spalte, in der die Zelle gespeichert werden soll
 	 * @author 2788085
 	 */
-	public void gebäreZelle (int reihe, int spalte) {
+	public void gebaereZelle (int reihe, int spalte) {
 		
 		speichereZelle(reihe, spalte, new Zelle());
 	}
 	
 
 	/**
-	 * Zelle, auf einer bestimmten Position im Array wird um 1 älter.
+	 * Zelle, auf einer bestimmten Position im Array wird um 1 aelter.
 	 * 
 	 * @param reihe Reihe, der zu alternden Zelle
 	 * @param spalte Spalte, der zu alternden Zelle
@@ -95,11 +95,11 @@ public class Spielfeld {
 	}
 	
 	/**
-	 * Prüft ein Arrayelement im Spielfeld, ob dort eine lebende Zelle vorhanden ist.
+	 * Prueft ein Arrayelement im Spielfeld, ob dort eine lebende Zelle vorhanden ist.
 	 * 
 	 * @param reihe Reihe im Spielfeld
 	 * @param spalte Spalte im Spielfeld
-	 * @return Gibt true zurück, ob eine Arrayposition eine lebende Zelle beinhaltet (Inhalt = Leben) oder false, wenn ein Arrayelement kein Inhalt bestitzt (NULL)
+	 * @return Gibt true zurueck, ob eine Arrayposition eine lebende Zelle beinhaltet (Inhalt = Leben) oder false, wenn ein Arrayelement kein Inhalt bestitzt (NULL)
 	 * @author 2788085
 	 */
 	public boolean zelleLebt(int reihe, int spalte) {
@@ -115,11 +115,11 @@ public class Spielfeld {
 	/**
 	 * Berechnet die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle
 	 * 
-	 * Zunächst prüft die Methode, ob die Positionen rund um die Zelle lebende Nachbarzellen sind
-	 * und zählt bei einem Treffer eine Zählvariable vom Typ Integer hoch. 
-	 * Die betrachtete Zelle selbst wird beim Zählen ausgeschlossen.
+	 * Zunaechst prueft die Methode, ob die Positionen rund um die Zelle lebende Nachbarzellen sind
+	 * und zaehlt bei einem Treffer eine Zaehlvariable vom Typ Integer hoch. 
+	 * Die betrachtete Zelle selbst wird beim Zaehlen ausgeschlossen.
 	 * 
-	 * Reihenfolge der Überprüfung der Nachbarn (von links oben nach rechts unten):
+	 * Reihenfolge der Ueberpruefung der Nachbarn (von links oben nach rechts unten):
 	 *   1 2 3  
 	 *   _ _ _
 	 *  |     |
@@ -129,12 +129,12 @@ public class Spielfeld {
 	 * 
 	 * @param reihe
 	 * @param spalte
-	 * @return Gibt die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle als Integerwert zurück (Maximal 8 Nachbarn)
+	 * @return Gibt die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle als Integerwert zurueck (Maximal 8 Nachbarn)
 	 * @author 2788085
 	 */
 	public int returnNachbaranzahl(int reihe, int spalte) {
 		
-		int zähler = 0; //Zähler auf 0
+		int zaehler = 0; //Zaehler auf 0
 		
 		
 		for (int i = (reihe -1); i < (reihe +2); i++) {
@@ -144,55 +144,55 @@ public class Spielfeld {
 						
 					}
 					else {
-						zähler++;
+						zaehler++;
 					}
 					
 				}
 			}
 		}
-		return zähler;
+		return zaehler;
 	}
 		
-		/* ALTERNATIVE FÜR RETURNNACHBARNANZAHL
+		/* ALTERNATIVE FUER RETURNNACHBARNANZAHL
 		// 1. Zelle unten links ist vorhanden
 		if (zelleLebt(reihe+1, spalte-1)) {
-			zähler++;
+			zaehler++;
 		}
 		// 2. Zelle unterhalb ist vorhanden
 		if (zelleLebt(reihe+1, spalte)) {
-			zähler++;
+			zaehler++;
 		}
 		// 3. Zelle unten rechts ist vorhanden
 		if (zelleLebt(reihe-1, spalte+1)) {
-			zähler++;
+			zaehler++;
 		}
 		// _4. Zelle links daneben vorhanden
 		if (zelleLebt(reihe, spalte-1)) {
-			zähler++;
+			zaehler++;
 		}
 		// 5. Zelle rechts daneben vorhanden
 		if (zelleLebt(reihe, spalte+1)) {
-			zähler++;
+			zaehler++;
 		}
 		// 6. Zelle oben links vorhanden 
 		if (zelleLebt(reihe-1, spalte-1)) {
-			zähler++;
+			zaehler++;
 		}
 		// 7. Zelle oberhalb vorhanden
 		if (zelleLebt(reihe-1, spalte)) {
-			zähler++;
+			zaehler++;
 		}
 		// 8. Zelle oben rechts vorhanden
 		if (zelleLebt(reihe-1, spalte+1)) {
-			zähler++;
+			zaehler++;
 		}
 		
-		return zähler;
+		return zaehler;
 		*/
 	
 	/**
 	 * Berechnet die Anzahl der Reihen im Spielfeld
-	 * @return Gibt die Anzahl der Reihen als Integerwert zurück
+	 * @return Gibt die Anzahl der Reihen als Integerwert zurueck
 	 * @author 2788085
 	 */
 	public int anzahlReihen () {		
@@ -201,7 +201,7 @@ public class Spielfeld {
 	
 	/**
 	 * Berechnet die Anzahl der Reihen im Spielfeld
-	 * @return Gibt die Anzahl der Reihen als Integerwert zurück
+	 * @return Gibt die Anzahl der Reihen als Integerwert zurueck
 	 * @author 2788085
 	 */	
 	public int anzahlSpalten () {

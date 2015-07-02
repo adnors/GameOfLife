@@ -11,13 +11,13 @@ public class Start {
 	/**
 	 * Startet das Programm
 	 * 
-	 * @param Übergabeparameter
+	 * @param Uebergabeparameter
 	 *            //!!!hier kommen der Dateiname, und die anderen Variablen noch
 	 *            rein !!!
 	 */
 	public static void main(String[] args) {
 
-		String name = "test.txt"; // Nur zum testen jetzt vorläufig so, dann mit
+		String name = "test.txt"; // Nur zum testen jetzt vorlaeufig so, dann mit
 									// der args variable
 									// zb. so, wenn der datei name an erster
 									// stelle name = args[0];
