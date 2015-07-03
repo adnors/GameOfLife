@@ -11,7 +11,7 @@ public class Spielfeld {
 	 * Initialisierung eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
 	 * @author 2788085
 	 */
-	private Zelle[][] Spielfeld;
+	protected Zelle[][] Spielfeld;
 	
 	/**
 	 * Ueberladener Konstruktor zum erstellen eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
