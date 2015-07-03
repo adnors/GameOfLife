@@ -22,9 +22,15 @@ public class Algorithmus {
 	 * 
 	 * @author 7866387
 	 */
-	public void berechneNaechsteGeneration () {
+	public void berechneNaechsteGeneration (boolean bordered ) {
 		Spielfeld tempSpielfeld = aktuellesSpielfeld;
-		
+		int reihe;
+		int spalte;
+		for (reihe = 0; reihe < tempSpielfeld.anzahlReihen(); reihe++) {
+			for (spalte = 0; spalte < tempSpielfeld.anzahlSpalten(); spalte++) {
+				tempSpielfeld.Spielfeld[reihe][spalte] = this.bestimmeNeuenZellenStatus(reihe, spalte, bordered);
+			}
+		}
 		aktuellesSpielfeld = tempSpielfeld;
 	}
 	
@@ -37,7 +43,7 @@ public class Algorithmus {
 	 * @return Gibt die veraenderte Zelle zurueck.
 	 * @author 7866387
 	 */
-	public Zelle bestimmeNeuenZellenStatus (int reihe, int spalte) {
+	public Zelle bestimmeNeuenZellenStatus (int reihe, int spalte, boolean borderd) {
 		Zelle aktuelleZelle;
 		int anzahlNachbarn;
 		aktuelleZelle = aktuellesSpielfeld.liefereZelleZurueck(reihe, spalte);
