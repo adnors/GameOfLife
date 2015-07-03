@@ -126,6 +126,9 @@ public class Spielfeld {
 	 * 4|  o  |5
 	 *  |_ _ _|
 	 *   6 7 8
+	 * Spezialfaelle entstehen, wen die zu betrachtende Zelle am Rand des Spielfelds liegt. Insgesamt 8 Spezialfaelle:
+	 * - in den vier Ecken des Spielfelds
+	 * - an den vier Seitenraendern des Spielfeldes
 	 * 
 	 * @param reihe
 	 * @param spalte
@@ -134,23 +137,103 @@ public class Spielfeld {
 	 */
 	public int returnNachbaranzahl(int reihe, int spalte) {
 		
-		int zaehler = 0; //Zaehler auf 0
+		int zaehler = 0; 															//Zaehler auf 0
 		
-		
-		for (int i = (reihe -1); i < (reihe +2); i++) {
-			for (int j = (spalte -1); j < (spalte +2); j++) {
-				if (zelleLebt(i, j)) {
-					if (i == reihe & j == spalte) {
-						
-					}
-					else {
-						zaehler++;
-					}
+
+		if (reihe == 0 & spalte == 0) {												//Ecke: OBEN LINKS
+			for (int i = (reihe); i < (reihe +2); i++) {
+				for (int j = (spalte); j < (spalte +2); j++) {
 					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
 				}
 			}
 		}
-		return zaehler;
+		else if (reihe == 0 & spalte == Spielfeld.length -1) {						//Ecke: OBEN RECHTS
+			for (int i = (reihe); i < (reihe +2); i++) {
+				for (int j = (spalte -1); j < (spalte +1); j++) {
+					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
+				}
+			}
+		}
+		else if (reihe == Spielfeld[0].length -1 & spalte == 0) {					//Ecke: UNTEN LINKS
+			for (int i = (reihe -1); i < (reihe +1); i++) {
+				for (int j = (spalte); j < (spalte +2); j++) {
+					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
+				}
+			}
+		}
+		else if (reihe == Spielfeld[0].length -1 & spalte == Spielfeld.length -1) {	//Ecke: UNTEN RECHTS
+			for (int i = (reihe -1); i < (reihe +1); i++) {
+				for (int j = (spalte -1); j < (spalte +1); j++) {
+					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
+				}
+			}
+		}
+		else if (spalte == Spielfeld.length -1) {									//Seite: RECHTS
+			for (int i = (reihe -1); i < (reihe +2); i++) {
+				for (int j = (spalte -1); j < (spalte +1); j++) {
+					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
+				}
+			}
+		}
+		else if (reihe == Spielfeld[0].length -1) {									//Seite: UNTEN
+			for (int i = (reihe -1); i < (reihe +1); i++) {
+				for (int j = (spalte -1); j < (spalte +2); j++) {
+					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
+				}
+			}
+		}
+		else if (spalte == 0) {														//Seite: LINKS
+			for (int i = (reihe -1); i < (reihe +2); i++) {
+				for (int j = (spalte); j < (spalte +2); j++) {
+					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
+				}
+			}
+		}
+		else if (reihe == 0) {														//Seite: OBEN
+			for (int i = (reihe); i < (reihe +2); i++) {
+				for (int j = (spalte -1); j < (spalte +2); j++) {
+					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
+				}
+			}
+		}
+		else {																		//Kein Spezialfall
+			for (int i = (reihe -1); i < (reihe +2); i++) {
+				for (int j = (spalte -1); j < (spalte +2); j++) {
+					
+					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+							zaehler++;
+					}
+				}
+			}				
+		}
+		
+		
+
+		return zaehler;																//Rueckgabe Anzahl der Nachbarn
 	}
 		
 		/* ALTERNATIVE FUER RETURNNACHBARNANZAHL
