@@ -6,7 +6,7 @@
  * @author 2788085
  *
  */
-public class Zelle {
+public class Zelle implements LebendigesObjekt {
 	
 	/**
 	 * Deklarieren der Variable alter, als Eigenschaft einer Zelle. 
