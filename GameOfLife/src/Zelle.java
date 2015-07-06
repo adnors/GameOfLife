@@ -54,9 +54,9 @@ public class Zelle {
 	}
 	
 	/**
-	 * Gibt eine "tote" Zelle zur�ck.
-	 * @return
-	 * @author 7866387
+	 * Tötet eine Zelle
+	 * @return Gibt eine "tote" Zelle zurück
+	 * @author 2788085
 	 */
 	public Zelle toeteZelle () {
 		return null;
