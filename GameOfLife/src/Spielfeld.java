@@ -11,7 +11,8 @@ public class Spielfeld {
 	 * Initialisierung eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
 	 * @author 2788085
 	 */
-	private Zelle[][] Spielfeld;
+	private Zelle[][] zellenRaster;
+	public int spalte, reihe;
 	
 	/**
 	 * Ueberladener Konstruktor zum erstellen eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
@@ -23,7 +24,11 @@ public class Spielfeld {
 	 * @author 2788085
 	 */
 	public Spielfeld(int anzahlSpalte, int anzahlReihe) {
-		Spielfeld = new Zelle[anzahlReihe][anzahlSpalte];
+		zellenRaster = new Zelle[anzahlSpalte][anzahlReihe];
+		spalte = anzahlSpalte;
+		reihe = anzahlReihe;
+		System.out.println("AnzReihen: "+anzahlReihe +" AnzSpalt: "+anzahlSpalte) ;
+	
 	}
 	
 	/**
@@ -37,7 +42,7 @@ public class Spielfeld {
 	 */
 	public Zelle liefereZelleZurueck (int reihe, int spalte) {
 		
-		return Spielfeld [reihe][spalte];
+		return zellenRaster [reihe][spalte];
 	} 
 		
 	/**
@@ -49,7 +54,7 @@ public class Spielfeld {
 	 */
 	public void toeteZelle (int reihe, int spalte) { // Ich bin mir unsicher, ob diese Methode benoetigt wird. (7866387)
 		
-		Spielfeld[reihe][spalte] = null;
+		zellenRaster[reihe][spalte] = null;
 	}
 	
 	/**
@@ -65,7 +70,8 @@ public class Spielfeld {
 	 */
 	public void speichereZelle (int reihe, int spalte, Zelle z) {
 		
-		Spielfeld[reihe][spalte] = z;
+		System.out.println("spalter: "+spalte+ " Zeile:"+reihe);
+		zellenRaster[reihe][spalte] = z;
 	}
 	
 	/**
@@ -150,7 +156,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == 0 & spalte == Spielfeld[0].length -1) {						//Ecke: OBEN RECHTS
+		else if (reihe == 0 & spalte == zellenRaster[0].length -1) {						//Ecke: OBEN RECHTS
 			for (int i = (reihe); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -160,7 +166,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == Spielfeld.length -1 & spalte == 0) {					//Ecke: UNTEN LINKS
+		else if (reihe == zellenRaster.length -1 & spalte == 0) {					//Ecke: UNTEN LINKS
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte); j < (spalte +2); j++) {
 					
@@ -170,7 +176,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == Spielfeld.length -1 & spalte == Spielfeld[0].length -1) {	//Ecke: UNTEN RECHTS
+		else if (reihe == zellenRaster.length -1 & spalte == zellenRaster[0].length -1) {	//Ecke: UNTEN RECHTS
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -180,7 +186,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (spalte == Spielfeld[0].length -1) {									//Seite: RECHTS
+		else if (spalte == zellenRaster[0].length -1) {									//Seite: RECHTS
 			for (int i = (reihe -1); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -190,7 +196,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == Spielfeld.length -1) {									//Seite: UNTEN
+		else if (reihe == zellenRaster.length -1) {									//Seite: UNTEN
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte -1); j < (spalte +2); j++) {
 					
@@ -279,7 +285,7 @@ public class Spielfeld {
 	 * @author 2788085
 	 */
 	public int anzahlReihen () {		
-		return Spielfeld.length;
+		return zellenRaster.length;
 	}
 	
 	/**
@@ -288,7 +294,7 @@ public class Spielfeld {
 	 * @author 2788085
 	 */	
 	public int anzahlSpalten () {
-		return Spielfeld[0].length;
+		return zellenRaster[0].length;
 	}
 		
 	

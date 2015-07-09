@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 /**
  * Zum Starten des Spieles GameOfLife.
@@ -6,7 +7,6 @@
  *
  */
 public class Start {
-
 	/**
 	 * Startet das Programm
 	 * 
@@ -16,7 +16,7 @@ public class Start {
 	 */
 	public static void main(String[] args) {
 		
-		String name = "test.txt"; // Nur zum testen jetzt vorlaeufig so, dann mit
+		String name = "/Users/MatthiasDuernay/Documents/workspace/GameOfLife_DHBW/src/test.txt"; // Nur zum testen jetzt vorlaeufig so, dann mit
 									// der args variable
 									// zb. so, wenn der datei name an erster
 									// stelle name = args[0];
@@ -26,7 +26,13 @@ public class Start {
 
 		// Aufrufen des Einlesevorgangs, und abfangen der Fehler dabei und ausgeben
 		try {
+			
 			einl.einlesen(name);
+			
+			//Spielfeld anzeigen
+			//Zeig mich an kollege
+			//JUENGE :D
+			
 
 		} catch (MeineException e) {
 

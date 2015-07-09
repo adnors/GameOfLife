@@ -59,6 +59,8 @@ public class Einlesen {
 			feld = new Spielfeld(anzahlZeile, anzahlZeichen);
 
 			datenAuslesen();
+			
+			FrameContainer container = new FrameContainer(this.feld);
 			// Zeile fuer zeile durchgehen
 		} catch (FileNotFoundException eFile) {
 			// Fehlermeldung ausgeben und abbrechen
@@ -144,7 +146,9 @@ public class Einlesen {
 			// Zur Naechsten Zeile springen und auslesen
 			zeile = buffer.readLine(); // !!!Auslesen
 			// Zeichen fuer Zeichen der Zeile durchgehen
-			for (int i = 0; i < anzahlZeichen; i++) {
+			
+
+			for (int i = 0; i < anzahlZeichen-1 ; i++) {
 				// Pruefen ob das Zeichen ein "*" ist, also ob sie lebt
 				if (('*' == zeile.charAt(i))) {
 					// Neue Zelle erstellen
