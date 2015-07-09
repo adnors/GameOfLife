@@ -15,7 +15,7 @@ import java.io.IOException;
 public class Einlesen {
 
 	// Deklaration der Variablen
-	private Spielfeld feld; // Abspeichern der Zellen in dem feld
+	public Spielfeld feld; // Abspeichern der Zellen in dem feld
 	private String zeile; // Auslesen der Zeilen in der Datei
 	private int anzahlZeile; // Ermitteln der Anzahl der Zeilen
 	private int anzahlZeichen; // Ermitteln der Zeichen pro Zeile

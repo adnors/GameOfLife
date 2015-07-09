@@ -1,7 +1,5 @@
-
 /**
  * @author 7866387
- *
  */
 public class Algorithmus {
 	
@@ -15,7 +13,7 @@ public class Algorithmus {
 	 */
 	public Algorithmus (Spielfeld s) {
 		this.aktuellesSpielfeld = s;
-	}//Strg+a bitte 
+	}
 	
 	/**
 	 * Berechnet die naechste Generation und ueberschreibt dabei das Spielfeld.
@@ -28,7 +26,7 @@ public class Algorithmus {
 		int spalte;
 		for (reihe = 0; reihe < tempSpielfeld.anzahlReihen(); reihe++) {
 			for (spalte = 0; spalte < tempSpielfeld.anzahlSpalten(); spalte++) {
-				tempSpielfeld.Spielfeld[reihe][spalte] = this.bestimmeNeuenZellenStatus(reihe, spalte, bordered);
+				tempSpielfeld.zellenRaster[reihe][spalte] = this.bestimmeNeuenZellenStatus(reihe, spalte, bordered);
 			}
 		}
 		aktuellesSpielfeld = tempSpielfeld;

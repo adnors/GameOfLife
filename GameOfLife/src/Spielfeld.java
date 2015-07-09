@@ -11,7 +11,7 @@ public class Spielfeld {
 	 * Initialisierung eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
 	 * @author 2788085
 	 */
-	private Zelle[][] zellenRaster;
+	public Zelle[][] zellenRaster;
 	public int spalte, reihe;
 	
 	/**
@@ -69,8 +69,6 @@ public class Spielfeld {
 	 * @author 2788085
 	 */
 	public void speichereZelle (int reihe, int spalte, Zelle z) {
-		
-		System.out.println("spalter: "+spalte+ " Zeile:"+reihe);
 		zellenRaster[reihe][spalte] = z;
 	}
 	
