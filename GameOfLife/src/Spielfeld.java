@@ -150,7 +150,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == 0 & spalte == Spielfeld.length -1) {						//Ecke: OBEN RECHTS
+		else if (reihe == 0 & spalte == Spielfeld[0].length -1) {						//Ecke: OBEN RECHTS
 			for (int i = (reihe); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -160,7 +160,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == Spielfeld[0].length -1 & spalte == 0) {					//Ecke: UNTEN LINKS
+		else if (reihe == Spielfeld.length -1 & spalte == 0) {					//Ecke: UNTEN LINKS
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte); j < (spalte +2); j++) {
 					
@@ -170,7 +170,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == Spielfeld[0].length -1 & spalte == Spielfeld.length -1) {	//Ecke: UNTEN RECHTS
+		else if (reihe == Spielfeld.length -1 & spalte == Spielfeld[0].length -1) {	//Ecke: UNTEN RECHTS
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -180,7 +180,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (spalte == Spielfeld.length -1) {									//Seite: RECHTS
+		else if (spalte == Spielfeld[0].length -1) {									//Seite: RECHTS
 			for (int i = (reihe -1); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -190,7 +190,7 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == Spielfeld[0].length -1) {									//Seite: UNTEN
+		else if (reihe == Spielfeld.length -1) {									//Seite: UNTEN
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte -1); j < (spalte +2); j++) {
 					
