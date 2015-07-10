@@ -239,43 +239,6 @@ public class Spielfeld {
 
 		return zaehler;																//Rueckgabe Anzahl der Nachbarn
 	}
-		
-		/* ALTERNATIVE FUER RETURNNACHBARNANZAHL
-		// 1. Zelle unten links ist vorhanden
-		if (zelleLebt(reihe+1, spalte-1)) {
-			zaehler++;
-		}
-		// 2. Zelle unterhalb ist vorhanden
-		if (zelleLebt(reihe+1, spalte)) {
-			zaehler++;
-		}
-		// 3. Zelle unten rechts ist vorhanden
-		if (zelleLebt(reihe-1, spalte+1)) {
-			zaehler++;
-		}
-		// _4. Zelle links daneben vorhanden
-		if (zelleLebt(reihe, spalte-1)) {
-			zaehler++;
-		}
-		// 5. Zelle rechts daneben vorhanden
-		if (zelleLebt(reihe, spalte+1)) {
-			zaehler++;
-		}
-		// 6. Zelle oben links vorhanden 
-		if (zelleLebt(reihe-1, spalte-1)) {
-			zaehler++;
-		}
-		// 7. Zelle oberhalb vorhanden
-		if (zelleLebt(reihe-1, spalte)) {
-			zaehler++;
-		}
-		// 8. Zelle oben rechts vorhanden
-		if (zelleLebt(reihe-1, spalte+1)) {
-			zaehler++;
-		}
-		
-		return zaehler;
-		*/
 	
 	/**
 	 * Berechnet die Anzahl der Reihen im Spielfeld
