@@ -3,7 +3,7 @@
  */
 public class Algorithmus {
 	
-	private Spielfeld aktuellesSpielfeld; // Abspeichern des Spielfelds
+	protected Spielfeld aktuellesSpielfeld; // Abspeichern des Spielfelds
 	
 	/**
 	 * Konstruktor
@@ -21,15 +21,13 @@ public class Algorithmus {
 	 * @author 7866387
 	 */
 	public void berechneNaechsteGeneration (boolean bordered ) {
-		Spielfeld tempSpielfeld = aktuellesSpielfeld;
 		int reihe;
 		int spalte;
-		for (reihe = 0; reihe < tempSpielfeld.anzahlReihen(); reihe++) {
-			for (spalte = 0; spalte < tempSpielfeld.anzahlSpalten(); spalte++) {
-				tempSpielfeld.zellenRaster[reihe][spalte] = this.bestimmeNeuenZellenStatus(reihe, spalte, bordered);
+		for (reihe = 0; reihe < aktuellesSpielfeld.reihe; reihe++) {
+			for (spalte = 0; spalte < aktuellesSpielfeld.spalte; spalte++) {
+				bestimmeNeuenZellenStatus(reihe, spalte, bordered);
 			}
 		}
-		aktuellesSpielfeld = tempSpielfeld;
 	}
 	
 	/**
@@ -41,23 +39,24 @@ public class Algorithmus {
 	 * @return Gibt die veraenderte Zelle zurueck.
 	 * @author 7866387
 	 */
-	public Zelle bestimmeNeuenZellenStatus (int reihe, int spalte, boolean borderd) {
-		Zelle aktuelleZelle;
+	public void bestimmeNeuenZellenStatus (int reihe, int spalte, boolean bordered) {
 		int anzahlNachbarn;
-		aktuelleZelle = aktuellesSpielfeld.liefereZelleZurueck(reihe, spalte);
-		anzahlNachbarn = aktuellesSpielfeld.returnNachbaranzahl(reihe, spalte, borderd);
+		anzahlNachbarn = aktuellesSpielfeld.returnNachbaranzahl(reihe, spalte, bordered);
 		switch (anzahlNachbarn) {
 			case 2: case 3: 
-				aktuelleZelle.zaehleAlterHoch();
+				if (aktuellesSpielfeld.zelleLebt(reihe, spalte)) {
+					aktuellesSpielfeld.altereZelle(reihe, spalte);
+				}
+				else {
+					aktuellesSpielfeld.gebaereZelle(reihe, spalte);
+				}
 				break;
 			case 0: case 1: case 4: case 5: case 6: case 7: case 8:
-				aktuelleZelle = aktuelleZelle.toeteZelle();
+				aktuellesSpielfeld.toeteZelle(reihe, spalte);
 				break;
 			default:
 				System.err.println("Invalide Anzahl an Zellennachbarn wurde ermittelt!");
 				break;
 		}
-		return aktuelleZelle;
 	}
-	
 }

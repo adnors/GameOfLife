@@ -10,8 +10,9 @@ public class GameLoop implements Runnable
 	private int delayTime;
 	private Algorithmus algo;
 	private boolean bordered;
+	private Konsole konsole = new Konsole();
 	
-	GameLoop(int delayTime, Algorithmus algo, boolean bordered)
+	public GameLoop(int delayTime, Algorithmus algo, boolean bordered)
 	{
 		this.delayTime = delayTime;
 		this.algo = algo;
@@ -24,7 +25,7 @@ public class GameLoop implements Runnable
     	{
     		System.out.println("Calculating new generation");
     		algo.berechneNaechsteGeneration(bordered);
-    		
+    		konsole.zeichneArray(algo.aktuellesSpielfeld);
     		
     		
     		try{

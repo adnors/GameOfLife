@@ -16,14 +16,15 @@ public class Start {
 	 */
 	public static void main(String[] args) {
 		
-		String name = "/Users/MatthiasDuernay/Documents/workspace/GameOfLife_DHBW/src/test.txt"; // Nur zum testen jetzt vorlaeufig so, dann mit
+		String name ="/Users/MatthiasDuernay/Documents/workspace/GameOfLife_DHBW/src/test.txt";
+									// Nur zum testen jetzt vorlaeufig so, dann mit
 									// der args variable
 									// zb. so, wenn der datei name an erster
 									// stelle name = args[0];
 
 		// Erstellen des Objektes, der Klasse Einlesen
 		Einlesen einl = new Einlesen();
-
+		
 		// Aufrufen des Einlesevorgangs, und abfangen der Fehler dabei und ausgeben
 		try {
 			
@@ -38,6 +39,8 @@ public class Start {
 
 			JOptionPane.showMessageDialog(null, e.getZusatz(), "Fehler", 0);
 		}
-
+		Algorithmus algo = new Algorithmus(einl.feld);
+		GameLoop gl = new GameLoop(300, algo, true);
+		gl.run();
 	}
 }

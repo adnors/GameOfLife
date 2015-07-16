@@ -57,8 +57,9 @@ public class Zelle implements LebendigesObjekt {
 	 * Tötet eine Zelle
 	 * @return Gibt eine "tote" Zelle zurück
 	 * @author 2788085
+	 * @return 
 	 */
-	public Zelle toeteZelle () {
+	public Zelle toeteZelle() {
 		return null;
 	}
 

@@ -23,8 +23,8 @@ public class Spielfeld {
 	 * @param anzahlReihe Anzahl der Reihen des Spielfeldes
 	 * @author 2788085
 	 */
-	public Spielfeld(int anzahlSpalte, int anzahlReihe) {
-		zellenRaster = new Zelle[anzahlSpalte][anzahlReihe];
+	public Spielfeld(int anzahlReihe, int anzahlSpalte) {
+		zellenRaster = new Zelle[anzahlReihe][anzahlSpalte];
 		spalte = anzahlSpalte;
 		reihe = anzahlReihe;
 		System.out.println("AnzReihen: "+anzahlReihe +" AnzSpalt: "+anzahlSpalte) ;
