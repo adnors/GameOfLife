@@ -45,7 +45,7 @@ public class Algorithmus {
 		Zelle aktuelleZelle;
 		int anzahlNachbarn;
 		aktuelleZelle = aktuellesSpielfeld.liefereZelleZurueck(reihe, spalte);
-		anzahlNachbarn = aktuellesSpielfeld.returnNachbaranzahl(reihe, spalte);
+		anzahlNachbarn = aktuellesSpielfeld.returnNachbaranzahl(reihe, spalte, borderd);
 		switch (anzahlNachbarn) {
 			case 2: case 3: 
 				aktuelleZelle.zaehleAlterHoch();

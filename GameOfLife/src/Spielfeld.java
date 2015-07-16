@@ -137,20 +137,37 @@ public class Spielfeld {
 	 * @param reihe
 	 * @param spalte
 	 * @return Gibt die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle als Integerwert zurueck (Maximal 8 Nachbarn)
-	 * @author 2788085
+	 * @author 2788085, 7866387
 	 */
-	public int returnNachbaranzahl(int reihe, int spalte) {
+	public int returnNachbaranzahl(int reihe, int spalte, boolean bordered) {
 		
 		int zaehler = 0; 															//Zaehler auf 0
 		
 
 		if (reihe == 0 & spalte == 0) {												//Ecke: OBEN LINKS
 			for (int i = (reihe); i < (reihe +2); i++) {
-				for (int j = (spalte); j < (spalte +2); j++) {
-					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
-							zaehler++;
+					for (int j = (spalte); j < (spalte +2); j++) {
+						
+						if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+								zaehler++;
+						}
 					}
+				}
+			if (!bordered) {
+				if (zelleLebt(anzahlReihen()-1, anzahlSpalten()-1)) {			//pruefe Nachbar 1
+					zaehler++;
+				}
+				if (zelleLebt(anzahlReihen()-1, 0)) {							//pruefe Nachbar 2
+					zaehler++;
+				}
+				if (zelleLebt(anzahlReihen()-1, 1)) {							//pruefe Nachbar 3
+					zaehler++;
+				}
+				if (zelleLebt(0, anzahlSpalten()-1)) {							//pruefe Nachbar 4
+					zaehler++;
+				}
+				if (zelleLebt(1, anzahlSpalten()-1)) {							//pruefe Nachbar 6
+					zaehler++;
 				}
 			}
 		}
@@ -163,6 +180,23 @@ public class Spielfeld {
 					}
 				}
 			}
+			if (!bordered) {
+				if (zelleLebt(anzahlReihen()-1, anzahlSpalten()-2)) {			//pruefe Nachbar 1
+					zaehler++;
+				}
+				if (zelleLebt(anzahlReihen()-1, anzahlSpalten()-1)) {			//pruefe Nachbar 2
+					zaehler++;
+				}
+				if (zelleLebt(anzahlReihen()-1, 0)) {							//pruefe Nachbar 3
+					zaehler++;
+				}
+				if (zelleLebt(0, 0)) {											//pruefe Nachbar 5
+					zaehler++;
+				}
+				if (zelleLebt(1, 0)) {											//pruefe Nachbar 8
+					zaehler++;
+				}
+			}			
 		}
 		else if (reihe == zellenRaster.length -1 & spalte == 0) {					//Ecke: UNTEN LINKS
 			for (int i = (reihe -1); i < (reihe +1); i++) {
@@ -173,6 +207,23 @@ public class Spielfeld {
 					}
 				}
 			}
+			if (!bordered) {
+				if (zelleLebt(anzahlReihen()-2, anzahlSpalten()-1)) {			//pruefe Nachbar 1
+					zaehler++;
+				}
+				if (zelleLebt(anzahlReihen()-1, anzahlSpalten()-1)) {			//pruefe Nachbar 4
+					zaehler++;
+				}
+				if (zelleLebt(0, anzahlSpalten()-1)) {							//pruefe Nachbar 6
+					zaehler++;
+				}
+				if (zelleLebt(0, 0)) {											//pruefe Nachbar 7
+					zaehler++;
+				}
+				if (zelleLebt(0, 1)) {											//pruefe Nachbar 8
+					zaehler++;
+				}
+			}		
 		}
 		else if (reihe == zellenRaster.length -1 & spalte == zellenRaster[0].length -1) {	//Ecke: UNTEN RECHTS
 			for (int i = (reihe -1); i < (reihe +1); i++) {
@@ -181,6 +232,23 @@ public class Spielfeld {
 					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
 							zaehler++;
 					}
+				}
+			}
+			if (!bordered) {
+				if (zelleLebt(anzahlReihen()-2, 0)) {							//pruefe Nachbar 3
+					zaehler++;
+				}
+				if (zelleLebt(anzahlReihen()-1, 0)) {							//pruefe Nachbar 5
+					zaehler++;
+				}
+				if (zelleLebt(0, anzahlSpalten()-2)) {							//pruefe Nachbar 6
+					zaehler++;
+				}
+				if (zelleLebt(0, anzahlSpalten()-1)) {							//pruefe Nachbar 7
+					zaehler++;
+				}
+				if (zelleLebt(0, 0)) {											//pruefe Nachbar 8
+					zaehler++;
 				}
 			}
 		}
@@ -193,6 +261,13 @@ public class Spielfeld {
 					}
 				}
 			}
+			if (!bordered) {
+				for (int k = (reihe -1); k < (reihe +2); k++) {
+					if (zelleLebt(k, 0)) {											//pruefe Nachbar 3, 5, 8
+						zaehler++;
+					}
+				}
+			}
 		}
 		else if (reihe == zellenRaster.length -1) {									//Seite: UNTEN
 			for (int i = (reihe -1); i < (reihe +1); i++) {
@@ -200,6 +275,13 @@ public class Spielfeld {
 					
 					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
 							zaehler++;
+					}
+				}
+			}	
+			if (!bordered) {
+				for (int k = (spalte -1); k < (spalte +2); k++) {
+					if (zelleLebt(0, k)) {											//pruefe Nachbar 6, 7, 8
+						zaehler++;
 					}
 				}
 			}
@@ -212,6 +294,13 @@ public class Spielfeld {
 							zaehler++;
 					}
 				}
+			}	
+			if (!bordered) {
+				for (int k = (reihe -1); k < (reihe +2); k++) {
+					if (zelleLebt(k, anzahlSpalten()-1)) {							//pruefe Nachbar 1, 4, 6
+						zaehler++;
+					}
+				}
 			}
 		}
 		else if (reihe == 0) {														//Seite: OBEN
@@ -220,6 +309,13 @@ public class Spielfeld {
 					
 					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
 							zaehler++;
+					}
+				}
+			}	
+			if (!bordered) {
+				for (int k = (spalte -1); k < (spalte +2); k++) {
+					if (zelleLebt(anzahlReihen()-1, k)) {							//pruefe Nachbar 1, 2, 3
+						zaehler++;
 					}
 				}
 			}
@@ -232,8 +328,7 @@ public class Spielfeld {
 							zaehler++;
 					}
 				}
-			}				
-		}
+			}					}
 		
 		
 
