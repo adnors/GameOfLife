@@ -21,7 +21,7 @@ public class Konsole extends Ausgabe {
 	 * @author 2788085
 	 */
 		
-	private char [] Zeichenarray = { ' ', '.' , '+' , '*' , '#' };
+	private char [] Zeichenarray = { ' ', '.' , '+' , '*' , '#'};
 	
 	public Konsole() {
 		// TODO Auto-generated constructor stub
@@ -42,9 +42,9 @@ public class Konsole extends Ausgabe {
 					System.out.print(Zeichenarray[feld.liefereZelleZurueck(i, j).getAlter()]); 
 				}
 				else {						//Wenn keine Zelle auf der Position [i][j] vorhanden ist, gebe Zeichen ' ' aus
-					System.out.println(Zeichenarray[0]);
+					System.out.print(Zeichenarray[0]);
 				}
-			} System.out.println("/n");				//Nach jedem Durchlauf einer Reihe einen Zeilenumbruch ausgeben
+			} System.out.println();				//Nach jedem Durchlauf einer Reihe einen Zeilenumbruch ausgeben
 		}
 	}
 
