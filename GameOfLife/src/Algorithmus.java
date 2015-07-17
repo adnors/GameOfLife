@@ -55,9 +55,6 @@ public class Algorithmus {
 				if (aktuellesSpielfeld.zelleLebt(reihe, spalte)) {
 					dasSpielfeld.altereZelle(reihe, spalte);
 				}
-				else {
-					dasSpielfeld.gebaereZelle(reihe, spalte);
-				}
 				break;
 			case 3: 
 				if (aktuellesSpielfeld.zelleLebt(reihe, spalte)) {

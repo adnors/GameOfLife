@@ -148,7 +148,7 @@ public class Spielfeld {
 			for (int i = (reihe); i < (reihe +2); i++) {
 					for (int j = (spalte); j < (spalte +2); j++) {
 						
-						if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+						if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 								zaehler++;
 						}
 					}
@@ -175,7 +175,7 @@ public class Spielfeld {
 			for (int i = (reihe); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+					if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 							zaehler++;
 					}
 				}
@@ -202,7 +202,7 @@ public class Spielfeld {
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte); j < (spalte +2); j++) {
 					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+					if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 							zaehler++;
 					}
 				}
@@ -229,7 +229,7 @@ public class Spielfeld {
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+					if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 							zaehler++;
 					}
 				}
@@ -256,7 +256,7 @@ public class Spielfeld {
 			for (int i = (reihe -1); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+					if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 							zaehler++;
 					}
 				}
@@ -273,7 +273,7 @@ public class Spielfeld {
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte -1); j < (spalte +2); j++) {
 					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+					if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 							zaehler++;
 					}
 				}
@@ -290,7 +290,7 @@ public class Spielfeld {
 			for (int i = (reihe -1); i < (reihe +2); i++) {
 				for (int j = (spalte); j < (spalte +2); j++) {
 					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+					if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 							zaehler++;
 					}
 				}
@@ -307,7 +307,7 @@ public class Spielfeld {
 			for (int i = (reihe); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +2); j++) {
 					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+					if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 							zaehler++;
 					}
 				}
@@ -324,7 +324,7 @@ public class Spielfeld {
 			for (int i = (reihe -1); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +2); j++) {
 					
-					if (zelleLebt(i, j) & (i != reihe) & (j != spalte)) {
+					if (zelleLebt(i, j) && !((i == reihe) && (j == spalte))) { //prueft ob Zelle lebt und nicht sie selbst ist
 							zaehler++;
 					}
 				}
