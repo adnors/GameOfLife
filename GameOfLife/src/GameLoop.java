@@ -23,9 +23,10 @@ public class GameLoop implements Runnable
     {
     	while(true)
     	{
+    		konsole.zeichneArray(algo.aktuellesSpielfeld);
     		System.out.println("Calculating new generation");
     		algo.berechneNaechsteGeneration(bordered);
-    		konsole.zeichneArray(algo.aktuellesSpielfeld);
+    		
     		
     		
     		try{

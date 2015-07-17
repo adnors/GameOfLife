@@ -27,7 +27,7 @@ public class Spielfeld {
 		zellenRaster = new Zelle[anzahlReihe][anzahlSpalte];
 		spalte = anzahlSpalte;
 		reihe = anzahlReihe;
-		System.out.println("AnzReihen: "+anzahlReihe +" AnzSpalt: "+anzahlSpalte) ;
+		//System.out.println("AnzReihen: "+anzahlReihe +" AnzSpalt: "+anzahlSpalte) ;
 	
 	}
 	
@@ -328,7 +328,8 @@ public class Spielfeld {
 							zaehler++;
 					}
 				}
-			}					}
+			}					
+		}
 		
 		
 
@@ -353,5 +354,18 @@ public class Spielfeld {
 		return zellenRaster[0].length;
 	}
 		
-	
+	/**
+	 * Kopiert das Spielfeld und gibt es zurück.
+	 * @return Gibt das kopierte Spielfeld zurück
+	 * @author 7866387
+	 */
+	public Spielfeld kopiereSpielfeld () {
+		Spielfeld kopie = new Spielfeld(reihe, spalte);
+		for (int i = 0; i < reihe; i++){
+			for (int j = 0; j < spalte; j++){
+				kopie.zellenRaster[i][j] = this.liefereZelleZurueck(i, j);
+			}
+		}
+		return kopie;
+	}
 }
