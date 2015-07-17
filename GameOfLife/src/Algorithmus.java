@@ -45,12 +45,6 @@ public class Algorithmus {
 		int anzahlNachbarn;
 		anzahlNachbarn = aktuellesSpielfeld.returnNachbaranzahl(reihe, spalte, bordered);
 		switch (anzahlNachbarn) {
-			case 0: 
-				dasSpielfeld.toeteZelle(reihe, spalte);
-				break;
-			case 1:
-				dasSpielfeld.toeteZelle(reihe, spalte);
-				break;
 			case 2:
 				if (aktuellesSpielfeld.zelleLebt(reihe, spalte)) {
 					dasSpielfeld.altereZelle(reihe, spalte);
@@ -64,20 +58,7 @@ public class Algorithmus {
 					dasSpielfeld.gebaereZelle(reihe, spalte);
 				}
 				break;
-			
-			case 4:
-				dasSpielfeld.toeteZelle(reihe, spalte);
-				break;
-			case 5:
-				dasSpielfeld.toeteZelle(reihe, spalte);
-				break;
-			case 6:
-				dasSpielfeld.toeteZelle(reihe, spalte);
-				break;
-			case 7:
-				dasSpielfeld.toeteZelle(reihe, spalte);
-				break;
-			case 8:
+			case 0: case 1: case 4: case 5: case 6: case 7: case 8:
 				dasSpielfeld.toeteZelle(reihe, spalte);
 				break;
 			default:
