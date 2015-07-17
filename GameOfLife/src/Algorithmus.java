@@ -21,13 +21,15 @@ public class Algorithmus {
 	 * @author 7866387
 	 */
 	public void berechneNaechsteGeneration (boolean bordered ) {
+		Spielfeld tempSpielfeld = aktuellesSpielfeld.kopiereSpielfeld();
 		int reihe;
 		int spalte;
-		for (reihe = 0; reihe < aktuellesSpielfeld.reihe; reihe++) {
-			for (spalte = 0; spalte < aktuellesSpielfeld.spalte; spalte++) {
-				bestimmeNeuenZellenStatus(reihe, spalte, bordered);
+		for (reihe = 0; reihe < tempSpielfeld.reihe; reihe++) {
+			for (spalte = 0; spalte < tempSpielfeld.spalte; spalte++) {
+				bestimmeNeuenZellenStatus(tempSpielfeld, reihe, spalte, bordered);
 			}
 		}
+		aktuellesSpielfeld = tempSpielfeld;
 	}
 	
 	/**
@@ -39,20 +41,47 @@ public class Algorithmus {
 	 * @return Gibt die veraenderte Zelle zurueck.
 	 * @author 7866387
 	 */
-	public void bestimmeNeuenZellenStatus (int reihe, int spalte, boolean bordered) {
+	public void bestimmeNeuenZellenStatus (Spielfeld dasSpielfeld, int reihe, int spalte, boolean bordered) {
 		int anzahlNachbarn;
 		anzahlNachbarn = aktuellesSpielfeld.returnNachbaranzahl(reihe, spalte, bordered);
 		switch (anzahlNachbarn) {
-			case 2: case 3: 
+			case 0: 
+				dasSpielfeld.toeteZelle(reihe, spalte);
+				break;
+			case 1:
+				dasSpielfeld.toeteZelle(reihe, spalte);
+				break;
+			case 2:
 				if (aktuellesSpielfeld.zelleLebt(reihe, spalte)) {
-					aktuellesSpielfeld.altereZelle(reihe, spalte);
+					dasSpielfeld.altereZelle(reihe, spalte);
 				}
 				else {
-					aktuellesSpielfeld.gebaereZelle(reihe, spalte);
+					dasSpielfeld.gebaereZelle(reihe, spalte);
 				}
 				break;
-			case 0: case 1: case 4: case 5: case 6: case 7: case 8:
-				aktuellesSpielfeld.toeteZelle(reihe, spalte);
+			case 3: 
+				if (aktuellesSpielfeld.zelleLebt(reihe, spalte)) {
+					dasSpielfeld.altereZelle(reihe, spalte);
+				}
+				else {
+					dasSpielfeld.gebaereZelle(reihe, spalte);
+				}
+				break;
+			
+			case 4:
+				dasSpielfeld.toeteZelle(reihe, spalte);
+				break;
+			case 5:
+				dasSpielfeld.toeteZelle(reihe, spalte);
+				break;
+			case 6:
+				dasSpielfeld.toeteZelle(reihe, spalte);
+				break;
+			case 7:
+				dasSpielfeld.toeteZelle(reihe, spalte);
+				break;
+			case 8:
+				dasSpielfeld.toeteZelle(reihe, spalte);
 				break;
 			default:
 				System.err.println("Invalide Anzahl an Zellennachbarn wurde ermittelt!");
