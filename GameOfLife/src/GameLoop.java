@@ -1,4 +1,5 @@
 import java.awt.Container;
+import java.io.FileNotFoundException;
 
 /**
  * Zum Starten des Spieles GameOfLife..
@@ -14,13 +15,19 @@ public class GameLoop implements Runnable
 	private Konsole konsole = new Konsole();
 	private boolean guienabled;
 	
-	public GameLoop(int delayTime, Algorithmus algo, boolean guienabled, boolean bordered)
+	public GameLoop(String delayTime, Algorithmus algo, boolean guienabled, boolean bordered)  throws java.lang.NumberFormatException
 	{
-		this.delayTime = delayTime;
-		this.algo = algo;
-		this.guienabled = guienabled;
-		this.bordered = bordered;
-	}
+try {
+			int a = Integer.parseInt(delayTime);
+			this.delayTime = Integer.parseInt(delayTime);
+			this.algo = algo;
+			this.guienabled = guienabled;
+			this.bordered = bordered;
+		} catch (NumberFormatException k) {
+			// Falsche Verzoegerungszeit: Fehlermeldung ausgeben und abbrechen
+			System.out.println("Die Verzögerungszeit ist falsch eingegeben, bitte stellen Sie sicher, dass es sich um ein Integerwert handelt");
+		}
+	} 
 	
     public void run()
     {
