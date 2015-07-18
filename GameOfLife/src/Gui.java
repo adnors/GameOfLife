@@ -1,17 +1,19 @@
 import java.awt.*;
 /**
  * @author 2552171
- * Die Klasse soll eine GUI zeichnen, die anschließend die Werte des Game of Life grafisch darstellt.
- * Dabei wird das Kästchen in mehreren Graustufen dargestellt. weiß ist eine tote Zelle und mit zunehmendem Alter werden die Zellen dunkler bis sie bei 5 schwarz sind.
+ * Die Klasse soll eine GUI zeichnen, die anschlieÃŸend die Werte des Game of Life grafisch darstellt.
+ * Dabei wird das KÃ¤stchen in mehreren Graustufen dargestellt. weiÃŸ ist eine tote Zelle und mit zunehmendem Alter werden die Zellen dunkler bis sie bei 5 schwarz sind.
  */
 import javax.swing.*;
 
 public class Gui extends JPanel {
     /**
-     * @author 2552171 In den 3 Arrays sind werte für die Bildung einer Farbe in
-     *         RGB-Werten gespeichert. So kann das Farbenspektrum beliebig
-     *         erweitert werden. Dieses wäre mit den Standardausdrücken nicht
-     *         möglich.
+     * In den 3 Arrays sind werte fuer die Bildung einer Farbe in
+     * RGB-Werten gespeichert. So kann das Farbenspektrum beliebig
+     * erweitert werden. Dieses waere mit den Standardausdruecken nicht
+     * moeglich.
+     * 
+     * @author 2552171 
      */
     private int[] RGBArrayR = { 255, 150, 100, 50, 0 };
     private int[] RGBArrayG = { 255, 150, 100, 50, 0 };
@@ -37,7 +39,7 @@ public class Gui extends JPanel {
         int x = 12;
         /**
          * @author 2552171 Die folgenden Schleifen zeichnen ein Feld mit den
-         *         Farb und Positionswerten die aus der Zelle übergeben werden.
+         *         Farb- und Positionswerten die aus der Zelle uebergeben werden.
          * 
          */
         for (int z = 0; z < anzSpa; z++) {
@@ -60,7 +62,7 @@ public class Gui extends JPanel {
                 } else {
                     /**
                      * @author 2552171 Wenn die Zelle tot ist wird der Farbwert
-                     *         mit dem Alter 0 verwendet, im Array ist das weiß.
+                     *         mit dem Alter 0 verwendet, im Array ist das weiss.
                      */
                     Color farbe = new Color(RGBArrayR[0], RGBArrayG[0], RGBArrayB[0]);
                     g.setColor(farbe);
@@ -75,4 +77,5 @@ public class Gui extends JPanel {
             x = x + 30;
         }
     }
+
 }
