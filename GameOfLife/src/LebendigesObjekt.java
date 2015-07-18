@@ -1,5 +1,5 @@
 /**
- * Interface für Objekte im Spielfeld
+ * Interface fuer Objekte im Spielfeld
  * @author 2788085
  *
  */
