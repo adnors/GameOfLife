@@ -52,7 +52,7 @@ public class Spielfeld {
 	 * @param spalte Spalte, in der sich die Zelle im Array befindet
 	 * @author 2788085
 	 */
-	public void toeteZelle (int reihe, int spalte) { // Ich bin mir unsicher, ob diese Methode benoetigt wird. (7866387)
+	public void toeteZelle (int reihe, int spalte) { 
 		
 		zellenRaster[reihe][spalte] = null;
 	}
@@ -134,8 +134,8 @@ public class Spielfeld {
 	 * - in den vier Ecken des Spielfelds
 	 * - an den vier Seitenraendern des Spielfeldes
 	 * 
-	 * @param reihe
-	 * @param spalte
+	 * @param reihe Reihenposition im Spielfeld
+	 * @param spalte Spaltenposition im Spielfeld
 	 * @return Gibt die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle als Integerwert zurueck (Maximal 8 Nachbarn)
 	 * @author 2788085, 7866387
 	 */
@@ -355,8 +355,8 @@ public class Spielfeld {
 	}
 		
 	/**
-	 * Kopiert das Spielfeld und gibt es zurück.
-	 * @return Gibt das kopierte Spielfeld zurück
+	 * Kopiert das Spielfeld und gibt es zurÃ¼ck.
+	 * @return Gibt das kopierte Spielfeld zurÃ¼ck
 	 * @author 7866387
 	 */
 	public Spielfeld kopiereSpielfeld () {
