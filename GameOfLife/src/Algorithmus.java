@@ -16,7 +16,7 @@ public class Algorithmus {
 	}
 	
 	/**
-	 * Berechnet die naechste Generation und ueberschreibt dabei das Spielfeld.
+	 * Berechnet die naechste Generation und speichert es in aktuellesSpielfeld.
 	 * 
 	 * @author 7866387
 	 */
@@ -24,8 +24,8 @@ public class Algorithmus {
 		Spielfeld tempSpielfeld = aktuellesSpielfeld.kopiereSpielfeld();
 		int reihe;
 		int spalte;
-		for (reihe = 0; reihe < tempSpielfeld.reihe; reihe++) {
-			for (spalte = 0; spalte < tempSpielfeld.spalte; spalte++) {
+		for (reihe = 0; reihe < tempSpielfeld.maxReihe; reihe++) {
+			for (spalte = 0; spalte < tempSpielfeld.maxSpalte; spalte++) {
 				bestimmeNeuenZellenStatus(tempSpielfeld, reihe, spalte, bordered);
 			}
 		}
@@ -41,25 +41,25 @@ public class Algorithmus {
 	 * @return Gibt die veraenderte Zelle zurueck.
 	 * @author 7866387
 	 */
-	public void bestimmeNeuenZellenStatus (Spielfeld dasSpielfeld, int reihe, int spalte, boolean bordered) {
+	public void bestimmeNeuenZellenStatus (Spielfeld neuesSpielfeld, int reihe, int spalte, boolean bordered) {
 		int anzahlNachbarn;
 		anzahlNachbarn = aktuellesSpielfeld.returnNachbaranzahl(reihe, spalte, bordered);
 		switch (anzahlNachbarn) {
 			case 2:
 				if (aktuellesSpielfeld.zelleLebt(reihe, spalte)) {
-					dasSpielfeld.altereZelle(reihe, spalte);
+					neuesSpielfeld.altereZelle(reihe, spalte);
 				}
 				break;
 			case 3: 
 				if (aktuellesSpielfeld.zelleLebt(reihe, spalte)) {
-					dasSpielfeld.altereZelle(reihe, spalte);
+					neuesSpielfeld.altereZelle(reihe, spalte);
 				}
 				else {
-					dasSpielfeld.gebaereZelle(reihe, spalte);
+					neuesSpielfeld.gebaereZelle(reihe, spalte);
 				}
 				break;
 			case 0: case 1: case 4: case 5: case 6: case 7: case 8:
-				dasSpielfeld.toeteZelle(reihe, spalte);
+				neuesSpielfeld.toeteZelle(reihe, spalte);
 				break;
 			default:
 				System.err.println("Invalide Anzahl an Zellennachbarn wurde ermittelt!");

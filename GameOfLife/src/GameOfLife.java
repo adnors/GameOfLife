@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
  *
  */
 public class GameOfLife {
+	protected static boolean guienabled;
+	
 	/**
 	 * Startet das Programm
 	 * 
@@ -14,6 +16,8 @@ public class GameOfLife {
 	 *            //!!!hier kommen der Dateiname, und die anderen Variablen noch
 	 *            rein !!!
 	 */
+	
+	
 	/**
 		* @author 2552171 
 		 * Main M r
@@ -42,18 +46,23 @@ public class GameOfLife {
 		
 
 
+		
 		if (mode.equals("gui"))
 		{
-			//ATODO: mach gui
-		}
-		if (mode.equals("cli"))
-		{
-			//ATODO terminal
+			guienabled = true;
 		}
 		else
 		{
-			System.out.println("Mode parameter unrecognizable");	
+			if (mode.equals("cli"))
+			{
+				guienabled = false;
+			}
+			else
+			{
+				System.out.println("Mode parameter unrecognizable");	
+			}
 		}
+		
 		
 		Algorithmus algo = new Algorithmus(einl.feld); 
 		
@@ -65,7 +74,7 @@ public class GameOfLife {
 		}
 		
 		
-		GameLoop loop = new GameLoop(Integer.parseInt(timeDelay), algo, bordered);
+		GameLoop loop = new GameLoop(Integer.parseInt(timeDelay), algo, guienabled, bordered);
 		
 		Thread thread = new Thread(loop);
 		thread.start();

@@ -11,8 +11,8 @@ public class Spielfeld {
 	 * Initialisierung eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
 	 * @author 2788085
 	 */
-	public Zelle[][] zellenRaster;
-	public int spalte, reihe;
+	public LebendigesObjekt[][] zellenRaster;
+	public int maxSpalte, maxReihe;
 	
 	/**
 	 * Ueberladener Konstruktor zum erstellen eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
@@ -24,9 +24,9 @@ public class Spielfeld {
 	 * @author 2788085
 	 */
 	public Spielfeld(int anzahlReihe, int anzahlSpalte) {
-		zellenRaster = new Zelle[anzahlReihe][anzahlSpalte];
-		spalte = anzahlSpalte;
-		reihe = anzahlReihe;
+		zellenRaster = new LebendigesObjekt[anzahlReihe][anzahlSpalte];
+		maxSpalte = anzahlSpalte;
+		maxReihe = anzahlReihe;
 		//System.out.println("AnzReihen: "+anzahlReihe +" AnzSpalt: "+anzahlSpalte) ;
 	
 	}
@@ -40,7 +40,7 @@ public class Spielfeld {
 	 * @return Gibt die Zelle/NULL an einem bestimmten Ort (Reihe/Spalte) zurueck
 	 * @author 2788085
 	 */
-	public Zelle liefereZelleZurueck (int reihe, int spalte) {
+	public LebendigesObjekt liefereZelleZurueck (int reihe, int spalte) {
 		
 		return zellenRaster [reihe][spalte];
 	} 
@@ -68,7 +68,7 @@ public class Spielfeld {
 	 * @param z Zelle die gespeichert werden soll
 	 * @author 2788085
 	 */
-	public void speichereZelle (int reihe, int spalte, Zelle z) {
+	public void speichereZelle (int reihe, int spalte, LebendigesObjekt z) {
 		zellenRaster[reihe][spalte] = z;
 	}
 	
@@ -154,19 +154,19 @@ public class Spielfeld {
 					}
 				}
 			if (!bordered) {
-				if (zelleLebt(anzahlReihen()-1, anzahlSpalten()-1)) {			//pruefe Nachbar 1
+				if (zelleLebt(maxReihe-1, maxSpalte-1)) {			//pruefe Nachbar 1
 					zaehler++;
 				}
-				if (zelleLebt(anzahlReihen()-1, 0)) {							//pruefe Nachbar 2
+				if (zelleLebt(maxReihe-1, 0)) {							//pruefe Nachbar 2
 					zaehler++;
 				}
-				if (zelleLebt(anzahlReihen()-1, 1)) {							//pruefe Nachbar 3
+				if (zelleLebt(maxReihe-1, 1)) {							//pruefe Nachbar 3
 					zaehler++;
 				}
-				if (zelleLebt(0, anzahlSpalten()-1)) {							//pruefe Nachbar 4
+				if (zelleLebt(0, maxSpalte-1)) {							//pruefe Nachbar 4
 					zaehler++;
 				}
-				if (zelleLebt(1, anzahlSpalten()-1)) {							//pruefe Nachbar 6
+				if (zelleLebt(1, maxSpalte-1)) {							//pruefe Nachbar 6
 					zaehler++;
 				}
 			}
@@ -181,13 +181,13 @@ public class Spielfeld {
 				}
 			}
 			if (!bordered) {
-				if (zelleLebt(anzahlReihen()-1, anzahlSpalten()-2)) {			//pruefe Nachbar 1
+				if (zelleLebt(maxReihe-1, maxSpalte-2)) {			//pruefe Nachbar 1
 					zaehler++;
 				}
-				if (zelleLebt(anzahlReihen()-1, anzahlSpalten()-1)) {			//pruefe Nachbar 2
+				if (zelleLebt(maxReihe-1, maxSpalte-1)) {			//pruefe Nachbar 2
 					zaehler++;
 				}
-				if (zelleLebt(anzahlReihen()-1, 0)) {							//pruefe Nachbar 3
+				if (zelleLebt(maxReihe-1, 0)) {							//pruefe Nachbar 3
 					zaehler++;
 				}
 				if (zelleLebt(0, 0)) {											//pruefe Nachbar 5
@@ -208,13 +208,13 @@ public class Spielfeld {
 				}
 			}
 			if (!bordered) {
-				if (zelleLebt(anzahlReihen()-2, anzahlSpalten()-1)) {			//pruefe Nachbar 1
+				if (zelleLebt(maxReihe-2, maxSpalte-1)) {			//pruefe Nachbar 1
 					zaehler++;
 				}
-				if (zelleLebt(anzahlReihen()-1, anzahlSpalten()-1)) {			//pruefe Nachbar 4
+				if (zelleLebt(maxReihe-1, maxSpalte-1)) {			//pruefe Nachbar 4
 					zaehler++;
 				}
-				if (zelleLebt(0, anzahlSpalten()-1)) {							//pruefe Nachbar 6
+				if (zelleLebt(0, maxSpalte-1)) {							//pruefe Nachbar 6
 					zaehler++;
 				}
 				if (zelleLebt(0, 0)) {											//pruefe Nachbar 7
@@ -235,16 +235,16 @@ public class Spielfeld {
 				}
 			}
 			if (!bordered) {
-				if (zelleLebt(anzahlReihen()-2, 0)) {							//pruefe Nachbar 3
+				if (zelleLebt(maxReihe-2, 0)) {							//pruefe Nachbar 3
 					zaehler++;
 				}
-				if (zelleLebt(anzahlReihen()-1, 0)) {							//pruefe Nachbar 5
+				if (zelleLebt(maxReihe-1, 0)) {							//pruefe Nachbar 5
 					zaehler++;
 				}
-				if (zelleLebt(0, anzahlSpalten()-2)) {							//pruefe Nachbar 6
+				if (zelleLebt(0, maxSpalte-2)) {							//pruefe Nachbar 6
 					zaehler++;
 				}
-				if (zelleLebt(0, anzahlSpalten()-1)) {							//pruefe Nachbar 7
+				if (zelleLebt(0, maxSpalte-1)) {							//pruefe Nachbar 7
 					zaehler++;
 				}
 				if (zelleLebt(0, 0)) {											//pruefe Nachbar 8
@@ -297,7 +297,7 @@ public class Spielfeld {
 			}	
 			if (!bordered) {
 				for (int k = (reihe -1); k < (reihe +2); k++) {
-					if (zelleLebt(k, anzahlSpalten()-1)) {							//pruefe Nachbar 1, 4, 6
+					if (zelleLebt(k, maxSpalte-1)) {							//pruefe Nachbar 1, 4, 6
 						zaehler++;
 					}
 				}
@@ -314,7 +314,7 @@ public class Spielfeld {
 			}	
 			if (!bordered) {
 				for (int k = (spalte -1); k < (spalte +2); k++) {
-					if (zelleLebt(anzahlReihen()-1, k)) {							//pruefe Nachbar 1, 2, 3
+					if (zelleLebt(maxReihe-1, k)) {							//pruefe Nachbar 1, 2, 3
 						zaehler++;
 					}
 				}
@@ -360,9 +360,9 @@ public class Spielfeld {
 	 * @author 7866387
 	 */
 	public Spielfeld kopiereSpielfeld () {
-		Spielfeld kopie = new Spielfeld(reihe, spalte);
-		for (int i = 0; i < reihe; i++){
-			for (int j = 0; j < spalte; j++){
+		Spielfeld kopie = new Spielfeld(maxReihe, maxSpalte);
+		for (int i = 0; i < maxReihe; i++){
+			for (int j = 0; j < maxSpalte; j++){
 				kopie.zellenRaster[i][j] = this.liefereZelleZurueck(i, j);
 			}
 		}

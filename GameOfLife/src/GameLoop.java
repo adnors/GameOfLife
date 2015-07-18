@@ -11,11 +11,13 @@ public class GameLoop implements Runnable
 	private Algorithmus algo;
 	private boolean bordered;
 	private Konsole konsole = new Konsole();
+	private boolean guienabled;
 	
-	public GameLoop(int delayTime, Algorithmus algo, boolean bordered)
+	public GameLoop(int delayTime, Algorithmus algo, boolean guienabled, boolean bordered)
 	{
 		this.delayTime = delayTime;
 		this.algo = algo;
+		this.guienabled = guienabled;
 		this.bordered = bordered;
 	}
 	
@@ -23,10 +25,16 @@ public class GameLoop implements Runnable
     {
     	while(true)
     	{
-    		konsole.zeichneArray(algo.aktuellesSpielfeld);
     		System.out.println("Calculating new generation");
     		algo.berechneNaechsteGeneration(bordered);
-    		
+    		if(guienabled)
+    		{ 
+    			FrameContainer container = new FrameContainer(algo.aktuellesSpielfeld);
+    		}
+    		else
+    		{
+    			konsole.zeichneArray(algo.aktuellesSpielfeld); 
+    		}
     		
     		
     		try{
