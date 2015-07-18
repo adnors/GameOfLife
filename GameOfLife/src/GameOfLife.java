@@ -13,11 +13,11 @@ public class GameOfLife {
 	
 	
 	/**
-	 * Zum Start des Spiels mit Übergabeparametern
+	 * Zum Start des Spiels mit Ãœbergabeparametern
 	 * 
-	 * @param args Übergabewerte
+	 * @param args Ãœbergabewerte
 	 * [0]path: Pfad zur Datei die eingelesen werden soll
-	 * [1]timeDelay: Verzögerungszeig zur Berechnung der nächsten Generation
+	 * [1]timeDelay: VerzÃ¶gerungszeig zur Berechnung der nÃ¤chsten Generation
 	 * [2]mode: Modus, wie das spiel dargestellt werden soll (GUI/CLI)
 	 * [3]borderMode: Spielmodus Bordered oder Torus
 	 * 
@@ -29,11 +29,11 @@ public class GameOfLife {
 		String timeDelay = args[1];
 		String mode = args[2];
 		String borderMode = args[3];
-				
+		
 		/* ZUM TESTEN MIT ECLIPSE
 		String path = "/Users/Daniel/git/test/GameOfLife/src/file2.txt";
 		String timeDelay = "300";
-		String mode = "cli";
+		String mode = "gui";
 		String borderMode = "torus";
 		*/
 		
@@ -50,45 +50,54 @@ public class GameOfLife {
 
 			JOptionPane.showMessageDialog(null, e.getZusatz(), "Fehler", 0);
 		}
+			
+		//Fuehre aus, wenn ein eingelesenes Feld existiert und der Spielmodus ubergeben wurde
+		if ((mode.equals("gui") || mode.equals("cli")) & (borderMode.equals("torus") || borderMode.equals("bordered"))) {
+			
 		
-
-		if (mode.equals("gui"))
-		{
-			guienabled = true;
-		}
-		else
-		{
-			if (mode.equals("cli"))
+			if (mode.equals("gui"))
 			{
-				guienabled = false;
+				guienabled = true;
 			}
 			else
 			{
-				System.out.println("Mode parameter unrecognizable");	
+				if (mode.equals("cli"))
+				{
+					guienabled = false;
+				}
+				else
+				{
+					System.out.println("Mode parameter unrecognizable");	
+				}
 			}
-		}
-		
+			
+	
+			
+			//Erstellen Objekt Algorithmus und Ãœbergabe des eingelesenen Spielfeldes 
+			Algorithmus algo = new Algorithmus(einl.feld); 
+			//Bordered / Torus
+			boolean bordered = false;
+			
+			if(borderMode.equals("bordered"))
+			{
+				bordered = true;
+			}
+			
+			//Thread initiieren, mit Ãœbergabe notwendiger Parameter und starten
+			GameLoop loop = new GameLoop(timeDelay, algo, guienabled, bordered);
+			
 
-		
-		
-		Algorithmus algo = new Algorithmus(einl.feld); 
-		
-		boolean bordered = false;
-		
-		if(borderMode.equals("bordered"))
-		{
-			bordered = true;
-		}
-		
-		
-		GameLoop loop = new GameLoop(Integer.parseInt(timeDelay), algo, guienabled, bordered);
-		
-		Thread thread = new Thread(loop);
-		thread.start();
-		
-		
-		// TODO create thread with sleep time according to parameter, in which a while loop calls the methods of "algo" and the gui/cli gets updated accordingly
+			Thread thread = new Thread(loop);
+			thread.start();
 
-		
+
+			
+			
+			// TODO create thread with sleep time according to parameter, in which a while loop calls the methods of "algo" and the gui/cli gets updated accordingly
+	
+		}
+		else {
+			System.out.println("Sie haben entweder keinen, bzw. einen falschen Spielmodus (bordered/torus) oder eine nicht korrekte Ausgabeart (cli/gui) angegeben");
+		}
 	}
 }
