@@ -346,8 +346,8 @@ public class Spielfeld {
 	}
 	
 	/**
-	 * Berechnet die Anzahl der Reihen im Spielfeld
-	 * @return Gibt die Anzahl der Reihen als Integerwert zurueck
+	 * Berechnet die Anzahl der Spalten im Spielfeld
+	 * @return Gibt die Anzahl der Spalten als Integerwert zurueck
 	 * @author 2788085
 	 */	
 	public int anzahlSpalten () {
