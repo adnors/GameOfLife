@@ -3,36 +3,37 @@ import javax.swing.JOptionPane;
 /**
  * Zum Starten des Spieles GameOfLife.
  * 
- * @author 1443023
+ * @author 1443023, 2788085
  *
  */
 public class GameOfLife {
 	protected static boolean guienabled;
 	
+
+	
+	
 	/**
-	 * Startet das Programm
+	 * Zum Start des Spiels mit Übergabeparametern
 	 * 
-	 * @param Uebergabeparameter
-	 *            //!!!hier kommen der Dateiname, und die anderen Variablen noch
-	 *            rein !!!
+	 * @param args Übergabewerte
+	 * [0]path: Pfad zur Datei die eingelesen werden soll
+	 * [1]timeDelay: Verzögerungszeig zur Berechnung der nächsten Generation
+	 * [2]mode: Modus, wie das spiel dargestellt werden soll (GUI/CLI)
+	 * [3]borderMode: Spielmodus Bordered oder Torus
+	 * 
+	 * @author 1443023, 2788085
 	 */
-	
-	
-	/**
-		* @author 2552171 
-		 * Main M r
-		 */
 	public static void main(String[] args) {
 		
 		String path = args[0];
 		String timeDelay = args[1];
 		String mode = args[2];
 		String borderMode = args[3];
-		
-		/* ZUM TESTEN
+				
+		/* ZUM TESTEN MIT ECLIPSE
 		String path = "/Users/Daniel/git/test/GameOfLife/src/file2.txt";
 		String timeDelay = "300";
-		String mode = "gui";
+		String mode = "cli";
 		String borderMode = "torus";
 		*/
 		
@@ -51,8 +52,6 @@ public class GameOfLife {
 		}
 		
 
-
-		
 		if (mode.equals("gui"))
 		{
 			guienabled = true;
@@ -68,6 +67,8 @@ public class GameOfLife {
 				System.out.println("Mode parameter unrecognizable");	
 			}
 		}
+		
+
 		
 		
 		Algorithmus algo = new Algorithmus(einl.feld); 

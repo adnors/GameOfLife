@@ -25,7 +25,7 @@ public class GameLoop implements Runnable
     {
     	while(true)
     	{
-    		System.out.println("Calculating new generation");
+    		
     		algo.berechneNaechsteGeneration(bordered);
     		if(guienabled)
     		{ 

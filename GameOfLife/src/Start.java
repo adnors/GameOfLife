@@ -16,7 +16,7 @@ public class Start {
 	 */
 	public static void main(String[] args) {
 		
-		String name ="/Users/MatthiasDuernay/Documents/workspace/GameOfLife_DHBW/src/test.txt";
+		String name ="/Users/Daniel/workspace/GameOfLife/GameOfLife/src/file2.txt";
 									// Nur zum testen jetzt vorlaeufig so, dann mit
 									// der args variable
 									// zb. so, wenn der datei name an erster
@@ -40,7 +40,7 @@ public class Start {
 			JOptionPane.showMessageDialog(null, e.getZusatz(), "Fehler", 0);
 		}
 		Algorithmus algo = new Algorithmus(einl.feld);
-		GameLoop gl = new GameLoop(300, algo, true);
+		GameLoop gl = new GameLoop(300, algo, true, false);
 		gl.run();
 	}
 }

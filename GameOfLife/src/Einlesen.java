@@ -60,7 +60,7 @@ public class Einlesen {
 
 			datenAuslesen();
 			
-			FrameContainer container = new FrameContainer(this.feld);
+			
 			// Zeile fuer zeile durchgehen
 		} catch (FileNotFoundException eFile) {
 			// Fehlermeldung ausgeben und abbrechen

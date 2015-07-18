@@ -36,6 +36,7 @@ public class Konsole extends Ausgabe {
 	
 	@Override 
 	public void zeichneArray (Spielfeld feld) {
+		System.out.println("Calculating new generation");
 		for (int i = 0; i < feld.anzahlReihen(); i++) {			//Geht Reihen nacheinander durch 
 			for (int j = 0; j < feld.anzahlSpalten(); j++) {	//Geht einzelne Elemente in der Reihe durch
 				if (feld.zelleLebt(i, j)) {						//Wenn Zelle lebt, gebe entsprechendes Zeichen, abhaengig vom Alter der Zelle, aus dem Zeichenarray aus

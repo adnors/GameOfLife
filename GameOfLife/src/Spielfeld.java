@@ -357,7 +357,7 @@ public class Spielfeld {
 	/**
 	 * Kopiert das Spielfeld und gibt es zurück.
 	 * @return Gibt das kopierte Spielfeld zurück
-	 * @author 7866387
+	 * @author 7866387, 2788085
 	 */
 	public Spielfeld kopiereSpielfeld () {
 		Spielfeld kopie = new Spielfeld(maxReihe, maxSpalte);

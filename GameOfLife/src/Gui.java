@@ -21,7 +21,7 @@ public class Gui extends JPanel {
     private int feldBreite;
     private int feldHoehe;
     
-    Gui(Spielfeld feldInstanz)
+    public Gui(Spielfeld feldInstanz)
     {
         this.feld = feldInstanz;
         this.feldBreite = feldInstanz.anzahlSpalten();

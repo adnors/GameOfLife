@@ -11,8 +11,8 @@ public class FrameContainer
         int feldBreite = feld.anzahlSpalten();
         int feldHoehe = feld.anzahlReihen();
         
-        int anzSpa = feldBreite;// !!! WERT SUCHEN
-        int anzZei = feldHoehe;// !!! WERT SUCHEN
+        int anzSpa = feldBreite;
+        int anzZei = feldHoehe;
         int breite = (24 + anzSpa * 30);
         int hoehe = (24 + anzZei * 33);
         
