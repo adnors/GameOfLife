@@ -1,6 +1,7 @@
+import java.awt.Container;
 
 /**
- * Zum Starten des Spieles GameOfLife.
+ * Zum Starten des Spieles GameOfLife..
  * 
  * @author 2552171
  *
@@ -23,13 +24,20 @@ public class GameLoop implements Runnable
 	
     public void run()
     {
+    	FrameContainer container = null;
+    	if (guienabled) {
+    		container = new FrameContainer(algo.aktuellesSpielfeld);
+		}
+    	
     	while(true)
     	{
     		
     		algo.berechneNaechsteGeneration(bordered);
     		if(guienabled)
-    		{ 
-    			FrameContainer container = new FrameContainer(algo.aktuellesSpielfeld);
+    		{
+        		container.zeichneArray(algo.aktuellesSpielfeld);
+
+   
     		}
     		else
     		{
