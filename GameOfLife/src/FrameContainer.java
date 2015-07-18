@@ -1,10 +1,10 @@
 import javax.swing.JFrame;
 
-public class FrameContainer 
+public class FrameContainer  extends Ausgabe
 {
     private JFrame frame;
     
-    FrameContainer(Spielfeld feld)
+    public FrameContainer(Spielfeld feld)
     {
         frame = new JFrame();
         
@@ -18,8 +18,14 @@ public class FrameContainer
         
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(breite, hoehe);
-        frame.add(new Gui(feld));                // add component inheriting from JPanel
+        frame.add(new Gui(feld));                // add component inheriting from JPanel.
         frame.setVisible(true);
     }
+    
+    @Override
+    public void zeichneArray(Spielfeld feld) {
+    	frame.add(new Gui(feld));
+    	frame.setVisible(true);
+	}
+    
 }
-//Ja Hallo
