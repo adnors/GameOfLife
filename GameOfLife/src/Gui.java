@@ -52,9 +52,27 @@ public class Gui extends JPanel {
                      *         dem Alter ausgerechnet und entsprechend
                      *         gezeichnet.
                      */
-                    Color farbe = new Color(RGBArrayR[feld.liefereZelleZurueck(a, z).getAlter()],
+                	Color farbe;
+                	switch (feld.liefereZelleZurueck(a, z).getAlter()) {
+					case 1:
+						farbe = new Color(RGBArrayR[1],RGBArrayG[1],RGBArrayB[1]);
+						break;
+					case 2:
+						farbe = new Color(RGBArrayR[2],RGBArrayG[2],RGBArrayB[2]);
+						break;
+					case 3:
+						farbe = new Color(RGBArrayR[3],RGBArrayG[3],RGBArrayB[3]);
+						break;
+					case 4:
+						farbe = new Color(RGBArrayR[4],RGBArrayG[4],RGBArrayB[4]);
+						break;
+					default:
+						farbe = new Color(RGBArrayR[4],RGBArrayG[4],RGBArrayB[4]);
+						break;
+					}
+                    /*Color farbe = new Color(RGBArrayR[feld.liefereZelleZurueck(a, z).getAlter()],
                             RGBArrayG[feld.liefereZelleZurueck(a, z).getAlter()],
-                            RGBArrayB[feld.liefereZelleZurueck(a, z).getAlter()]);
+                            RGBArrayB[feld.liefereZelleZurueck(a, z).getAlter()]);*/
                     g.setColor(farbe);
                     g.fillRect(x - 1, y - 1, 25, 25);
                     g.setColor(Color.red);
