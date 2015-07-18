@@ -24,11 +24,17 @@ public class GameOfLife {
 		 */
 	public static void main(String[] args) {
 		
-		String path = args[1];
-		String timeDelay = args[2];
-		String mode = args[3];
-		String borderMode = args[4];
+		String path = args[0];
+		String timeDelay = args[1];
+		String mode = args[2];
+		String borderMode = args[3];
 		
+		/* ZUM TESTEN
+		String path = "/Users/Daniel/git/test/GameOfLife/src/file2.txt";
+		String timeDelay = "300";
+		String mode = "gui";
+		String borderMode = "torus";
+		*/
 		
 		// Erstellen des Objektes, der Klasse Einlesen
 		Einlesen einl = new Einlesen();

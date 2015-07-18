@@ -24,8 +24,8 @@ public class Algorithmus {
 		Spielfeld tempSpielfeld = aktuellesSpielfeld.kopiereSpielfeld();
 		int reihe;
 		int spalte;
-		for (reihe = 0; reihe < tempSpielfeld.maxReihe; reihe++) {
-			for (spalte = 0; spalte < tempSpielfeld.maxSpalte; spalte++) {
+		for (reihe = 0; reihe < tempSpielfeld.anzahlReihen(); reihe++) {
+			for (spalte = 0; spalte < tempSpielfeld.anzahlSpalten(); spalte++) {
 				bestimmeNeuenZellenStatus(tempSpielfeld, reihe, spalte, bordered);
 			}
 		}

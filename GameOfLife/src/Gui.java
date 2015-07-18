@@ -24,8 +24,8 @@ public class Gui extends JPanel {
     Gui(Spielfeld feldInstanz)
     {
         this.feld = feldInstanz;
-        this.feldBreite = feldInstanz.reihe;
-        this.feldHoehe = feldInstanz.spalte;
+        this.feldBreite = feldInstanz.anzahlSpalten();
+        this.feldHoehe = feldInstanz.anzahlReihen();
     }
 
     // overrides JPanel implementation of paintComponent()

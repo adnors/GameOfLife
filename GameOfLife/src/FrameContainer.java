@@ -8,8 +8,8 @@ public class FrameContainer
     {
         frame = new JFrame();
         
-        int feldBreite = feld.reihe;
-        int feldHoehe = feld.spalte;
+        int feldBreite = feld.anzahlSpalten();
+        int feldHoehe = feld.anzahlReihen();
         
         int anzSpa = feldBreite;// !!! WERT SUCHEN
         int anzZei = feldHoehe;// !!! WERT SUCHEN

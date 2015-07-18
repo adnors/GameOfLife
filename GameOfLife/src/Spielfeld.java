@@ -11,8 +11,8 @@ public class Spielfeld {
 	 * Initialisierung eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
 	 * @author 2788085
 	 */
-	public LebendigesObjekt[][] zellenRaster;
-	public int maxSpalte, maxReihe;
+	private LebendigesObjekt[][] zellenRaster;
+	private int maxSpalte, maxReihe;
 	
 	/**
 	 * Ueberladener Konstruktor zum erstellen eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
