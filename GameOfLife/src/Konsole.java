@@ -12,7 +12,7 @@ public class Konsole extends Ausgabe {
 
 	
 	/**
-	 * Zeichenarray, das zur Ausgabe des Spielfelds über die Konsole verwendet werden
+	 * Zeichenarray, das zur Ausgabe des Spielfelds Ã¼ber die Konsole verwendet werden
 	 * ' ': Keine Zelle
 	 * '.': Zelle mit Alter = 1
 	 * '+': Zelle mit Alter = 2
@@ -29,7 +29,7 @@ public class Konsole extends Ausgabe {
 	
 	
 	/**
-	 * Gibt das aktuell berechnete Spielfeld zurück
+	 * Gibt das aktuell berechnete Spielfeld zurÃ¼ck
 	 * @param feld Aktuelles berechnetes Feld, welches ausgegeben wird
 	 * @author 2788085
 	 */
@@ -38,7 +38,7 @@ public class Konsole extends Ausgabe {
 	public void zeichneArray (Spielfeld feld) {
 		for (int i = 0; i < feld.anzahlReihen(); i++) {			//Geht Reihen nacheinander durch 
 			for (int j = 0; j < feld.anzahlSpalten(); j++) {	//Geht einzelne Elemente in der Reihe durch
-				if (feld.zelleLebt(i, j)) {						//Wenn Zelle lebt, gebe entsprechendes Zeichen, abh�ngig vom Alter der Zelle, aus dem Zeichenarray aus
+				if (feld.zelleLebt(i, j)) {						//Wenn Zelle lebt, gebe entsprechendes Zeichen, abhaengig vom Alter der Zelle, aus dem Zeichenarray aus
 					switch (feld.liefereZelleZurueck(i, j).getAlter()) {
 					case 1:
 						System.out.print(Zeichenarray[1]);		//Alter = 1
@@ -53,7 +53,7 @@ public class Konsole extends Ausgabe {
 						System.out.print(Zeichenarray[4]);		//Alter = 4
 						break;
 					default:
-						System.out.print(Zeichenarray[4]);		//Alter gr��er als 4
+						System.out.print(Zeichenarray[4]);		//Alter groeßer als 4
 						break;
 					}
 				}
