@@ -15,7 +15,7 @@ public class FrameContainer  extends Ausgabe
         int anzZei = feldHoehe;
         int breite = (24 + anzSpa * 30);
         int hoehe = (24 + anzZei * 33);
-        
+        frame.setTitle("Game of Life");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(breite, hoehe);
         frame.add(new Gui(feld));                // add component inheriting from JPanel.
