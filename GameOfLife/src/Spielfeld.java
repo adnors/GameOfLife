@@ -1,6 +1,6 @@
 /**
- * Ein Spielfeld ist ein Objekt vom Datentyp Zelle [] [], welches ein flexibles 2 Dimensionales Array 
- * mit n Reihen und m Spalten bestitzt
+ * Ein Spielfeld ist ein Objekt vom Datentyp LebendigesObjekt [] [], welches ein flexibles 2 Dimensionales Array 
+ * mit n Reihen und m Spalten bestitzt und potentiell Objekte vom Datentyp Zelle enthalten kann
  * 
  * @author 2788085
  *
@@ -8,7 +8,8 @@
 public class Spielfeld {
 	
 	/**
-	 * Initialisierung eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp Zelle
+	 * Initialisierung eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp LebendigesObjekt [] [],
+	 * welches Zellen enthält
 	 * @author 2788085
 	 */
 	private LebendigesObjekt[][] zellenRaster;
@@ -136,6 +137,7 @@ public class Spielfeld {
 	 * 
 	 * @param reihe Reihenposition im Spielfeld
 	 * @param spalte Spaltenposition im Spielfeld
+	 * @param bordered Der Spielodus (Torus/Bordered) wird der Methode uebergeben und dementsprechend werden die Nachbarn beim Torusmodus extra behandelt, einzeln abgefragt und dazu gezaehlt
 	 * @return Gibt die Anzahl der unmittelbaren lebenden Nachbarn einer Zelle als Integerwert zurueck (Maximal 8 Nachbarn)
 	 * @author 2788085, 7866387
 	 */
@@ -143,8 +145,8 @@ public class Spielfeld {
 		
 		int zaehler = 0; 															//Zaehler auf 0
 		
-
-		if (reihe == 0 & spalte == 0) {												//Ecke: OBEN LINKS
+		//Ecke: OBEN LINKS
+		if (reihe == 0 & spalte == 0) {
 			for (int i = (reihe); i < (reihe +2); i++) {
 					for (int j = (spalte); j < (spalte +2); j++) {
 						
@@ -153,6 +155,7 @@ public class Spielfeld {
 						}
 					}
 				}
+			//Torus
 			if (!bordered) {
 				if (zelleLebt(maxReihe-1, maxSpalte-1)) {			//pruefe Nachbar 1
 					zaehler++;
@@ -171,7 +174,8 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == 0 & spalte == zellenRaster[0].length -1) {						//Ecke: OBEN RECHTS
+		//Ecke: OBEN RECHTS
+		else if (reihe == 0 & spalte == zellenRaster[0].length -1) {
 			for (int i = (reihe); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -180,6 +184,7 @@ public class Spielfeld {
 					}
 				}
 			}
+			//Torus
 			if (!bordered) {
 				if (zelleLebt(maxReihe-1, maxSpalte-2)) {			//pruefe Nachbar 1
 					zaehler++;
@@ -198,7 +203,8 @@ public class Spielfeld {
 				}
 			}			
 		}
-		else if (reihe == zellenRaster.length -1 & spalte == 0) {					//Ecke: UNTEN LINKS
+		//Ecke: UNTEN LINKS
+		else if (reihe == zellenRaster.length -1 & spalte == 0) {
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte); j < (spalte +2); j++) {
 					
@@ -207,6 +213,7 @@ public class Spielfeld {
 					}
 				}
 			}
+			//Torus
 			if (!bordered) {
 				if (zelleLebt(maxReihe-2, maxSpalte-1)) {			//pruefe Nachbar 1
 					zaehler++;
@@ -225,7 +232,8 @@ public class Spielfeld {
 				}
 			}		
 		}
-		else if (reihe == zellenRaster.length -1 & spalte == zellenRaster[0].length -1) {	//Ecke: UNTEN RECHTS
+		//Ecke: UNTEN RECHTS
+		else if (reihe == zellenRaster.length -1 & spalte == zellenRaster[0].length -1) {
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -234,6 +242,7 @@ public class Spielfeld {
 					}
 				}
 			}
+			//Torus
 			if (!bordered) {
 				if (zelleLebt(maxReihe-2, 0)) {							//pruefe Nachbar 3
 					zaehler++;
@@ -252,7 +261,8 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (spalte == zellenRaster[0].length -1) {									//Seite: RECHTS
+		//Seite: RECHTS
+		else if (spalte == zellenRaster[0].length -1) {
 			for (int i = (reihe -1); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +1); j++) {
 					
@@ -261,6 +271,7 @@ public class Spielfeld {
 					}
 				}
 			}
+			//Torus
 			if (!bordered) {
 				for (int k = (reihe -1); k < (reihe +2); k++) {
 					if (zelleLebt(k, 0)) {											//pruefe Nachbar 3, 5, 8
@@ -269,7 +280,8 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == zellenRaster.length -1) {									//Seite: UNTEN
+		//Seite: UNTEN
+		else if (reihe == zellenRaster.length -1) {
 			for (int i = (reihe -1); i < (reihe +1); i++) {
 				for (int j = (spalte -1); j < (spalte +2); j++) {
 					
@@ -277,7 +289,8 @@ public class Spielfeld {
 							zaehler++;
 					}
 				}
-			}	
+			}
+			//Torus
 			if (!bordered) {
 				for (int k = (spalte -1); k < (spalte +2); k++) {
 					if (zelleLebt(0, k)) {											//pruefe Nachbar 6, 7, 8
@@ -286,7 +299,8 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (spalte == 0) {														//Seite: LINKS
+		//Seite: LINKS
+		else if (spalte == 0) {
 			for (int i = (reihe -1); i < (reihe +2); i++) {
 				for (int j = (spalte); j < (spalte +2); j++) {
 					
@@ -294,7 +308,8 @@ public class Spielfeld {
 							zaehler++;
 					}
 				}
-			}	
+			}
+			//Torus
 			if (!bordered) {
 				for (int k = (reihe -1); k < (reihe +2); k++) {
 					if (zelleLebt(k, maxSpalte-1)) {							//pruefe Nachbar 1, 4, 6
@@ -303,7 +318,8 @@ public class Spielfeld {
 				}
 			}
 		}
-		else if (reihe == 0) {														//Seite: OBEN
+		//Seite: OBEN
+		else if (reihe == 0) {
 			for (int i = (reihe); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +2); j++) {
 					
@@ -311,7 +327,8 @@ public class Spielfeld {
 							zaehler++;
 					}
 				}
-			}	
+			}
+			//Torus
 			if (!bordered) {
 				for (int k = (spalte -1); k < (spalte +2); k++) {
 					if (zelleLebt(maxReihe-1, k)) {							//pruefe Nachbar 1, 2, 3
@@ -320,7 +337,8 @@ public class Spielfeld {
 				}
 			}
 		}
-		else {																		//Kein Spezialfall
+		//Kein Spezialfall
+		else {
 			for (int i = (reihe -1); i < (reihe +2); i++) {
 				for (int j = (spalte -1); j < (spalte +2); j++) {
 					
@@ -355,8 +373,8 @@ public class Spielfeld {
 	}
 		
 	/**
-	 * Kopiert das Spielfeld und gibt es zurück.
-	 * @return Gibt das kopierte Spielfeld zurück
+	 * Kopiert das Spielfeld und gibt es zurueck.
+	 * @return Gibt das kopierte Spielfeld zurueck
 	 * @author 7866387, 2788085
 	 */
 	public Spielfeld kopiereSpielfeld () {
