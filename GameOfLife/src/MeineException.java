@@ -4,7 +4,7 @@
  * @author 1443023
  */
 public class MeineException extends Exception{
-	
+	//Atribut für die Zusatzinfo
 	private String zusatzinfo;
 	/**
 	 * Weisst die Zusatzinfo vom aufruf dem Fehler zu
