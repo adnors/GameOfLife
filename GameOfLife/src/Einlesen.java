@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * Die Datei mit der Vorlage fuer die Erste runte des GamesOfLife auslesen, die
+ * Die Datei mit der Vorlage fuer die erste Runde des GamesOfLife auslesen, die
  * Groesse des Arrays ermitteln und die Werte dann auslesen und damit die
  * lebendigen Zellen im Spielfeld erstellen
  * 
@@ -40,7 +40,7 @@ public class Einlesen {
 	 *            Type String und wird benoetigt zum Aufrufen der Datei
 	 * @throws MeineException
 	 *             Gibt einen Fehler, wenn die Datei verschiedenlange Zeilen hat
-	 *             oder falsche Werte enthaelt, also nicht . und *
+	 *             oder falsche Werte enthaelt, also nicht "." und "*"
 	 */
 	public void einlesen(String dateiName) throws MeineException {
 		// Prueft die Vorgaenge und wirft sonst eine Fehlermeldung
@@ -64,13 +64,11 @@ public class Einlesen {
 			// Zeile fuer zeile durchgehen
 		} catch (FileNotFoundException eFile) {
 			// Fehlermeldung ausgeben und abbrechen
-			System.out
-					.println("Die Datei ist nicht vorhanden oder der Name ist Falsch!");
+			System.out.println("Die Datei ist nicht vorhanden oder der Name ist Falsch!");
 		} catch (IOException e) {
 			// Abfangen der undefinierten Fehler
 			e.printStackTrace();
-		} finally { // Wen der BufferReader vorhanden ist, aber nicht
-					// Funktioniert, diesen Schliessen
+		} finally { // Wen der BufferReader vorhanden ist, aber nicht Funktioniert, diesen Schliessen
 			if (buffer != null) { // ErmittelGroesse
 				try {
 					buffer.close(); // ErmittelGroesse
@@ -108,7 +106,7 @@ public class Einlesen {
 	 */
 	public void ermittleGroesse() throws IOException, MeineException {
 		// Anzahl der Zeilen auslesen
-		while ((zeile = buffer.readLine()) != null) { // !!! ErmittelGroesse
+		while ((zeile = buffer.readLine()) != null) { 
 			// Auslesen wie lang die Zeilen der Datei sind
 			anzahlZeichenNeu = zeile.length();
 			// Wenn 0, also erstes mal anzahlZeichenNeu, Wert vom auslesen
@@ -119,8 +117,7 @@ public class Einlesen {
 			if (anzahlZeichen != anzahlZeichenNeu) {
 				// Fehlermeldung ausgeben, das die Zeilen Ungleichlang sind und
 				// abbrechen
-				throw new MeineException(
-						"Die Datei enthaelt ungleichlange Zeilen!");
+				throw new MeineException("Die Datei enthaelt ungleichlange Zeilen!");
 			}
 			// Anzahl der Zeilen erhoehen um eins
 			anzahlZeile++;
@@ -141,27 +138,25 @@ public class Einlesen {
 	 */
 
 	public void datenAuslesen() throws IOException, MeineException {
-		// Zeile fuer zeile durchgehen
+		// Zeile fuer Zeile durchgehen
 		for (int k = 0; k < anzahlZeile; k++) {
 			// Zur Naechsten Zeile springen und auslesen
-			zeile = buffer.readLine(); // !!!Auslesen
+			zeile = buffer.readLine(); 
 			// Zeichen fuer Zeichen der Zeile durchgehen
 			
-
 			for (int i = 0; i < anzahlZeichen-1 ; i++) {
 				// Pruefen ob das Zeichen ein "*" ist, also ob sie lebt
 				if (('*' == zeile.charAt(i))) {
 					// Neue Zelle erstellen
 					feld.gebaereZelle(k, i);
-	//wenn getestet werden will ob die zellen aus der datei gelesen werden
-	//diese zeile mit rein nehmen 		->		"System.out.print("l ");"     
+	//wenn getestet werden will ob die zellen aus der Datei gelesen werden
+	//diese zeile mit rein nehmen 	->	"System.out.print("l ");"     
 			//und die "feld.gebaere.." darueber rauskomentieren
 					
 				} else {
 					// Pruefen ob ein Falsches zeichen, also alle auser * oder .
 					// vorhanden ist
 					if ('.' != zeile.charAt(i)) {
-						// System.out.println("Abbruch, da falsche zelle");
 						throw new MeineException(
 								"Die Datei enthaelt falsche Werte!");
 					}
