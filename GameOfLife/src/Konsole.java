@@ -12,7 +12,7 @@ public class Konsole extends Ausgabe {
 
 	
 	/**
-	 * Zeichenarray, das zur Ausgabe des Spielfelds Ã¼ber die Konsole verwendet werden
+	 * Zeichenarray, das zur Ausgabe des Spielfelds ÃƒÂ¼ber die Konsole verwendet werden
 	 * ' ': Keine Zelle
 	 * '.': Zelle mit Alter = 1
 	 * '+': Zelle mit Alter = 2
@@ -22,6 +22,7 @@ public class Konsole extends Ausgabe {
 	 */
 		
 	private char [] Zeichenarray = { ' ', '.' , '+' , '*' , '#'};
+	private static int a = 0;
 	
 	public Konsole() {
 		// TODO Auto-generated constructor stub
@@ -29,14 +30,15 @@ public class Konsole extends Ausgabe {
 	
 	
 	/**
-	 * Gibt das aktuell berechnete Spielfeld zurÃ¼ck
+	 * Gibt das aktuell berechnete Spielfeld in der Konsole zurueck
 	 * @param feld Aktuelles berechnetes Feld, welches ausgegeben wird
 	 * @author 2788085
 	 */
 	
 	@Override 
 	public void zeichneArray (Spielfeld feld) {
-		System.out.println("Calculating new generation");
+		a++;
+		System.out.println("Calculating " + a + ". generation");
 		for (int i = 0; i < feld.anzahlReihen(); i++) {			//Geht Reihen nacheinander durch 
 			for (int j = 0; j < feld.anzahlSpalten(); j++) {	//Geht einzelne Elemente in der Reihe durch
 				if (feld.zelleLebt(i, j)) {						//Wenn Zelle lebt, gebe entsprechendes Zeichen, abhaengig vom Alter der Zelle, aus dem Zeichenarray aus
@@ -54,7 +56,7 @@ public class Konsole extends Ausgabe {
 						System.out.print(Zeichenarray[4]);		//Alter = 4
 						break;
 					default:
-						System.out.print(Zeichenarray[4]);		//Alter groeßer als 4
+						System.out.print(Zeichenarray[4]);		//Alter groeÃŸer als 4
 						break;
 					}
 				}
