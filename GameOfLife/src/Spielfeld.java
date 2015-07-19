@@ -9,7 +9,7 @@ public class Spielfeld {
 	
 	/**
 	 * Initialisierung eines 2 Dimensionalen Arrays "Spielfeld" vom Datentyp LebendigesObjekt [] [],
-	 * welches Zellen enthält
+	 * welches Zellen enthaelt
 	 * @author 2788085
 	 */
 	private LebendigesObjekt[][] zellenRaster;
@@ -374,6 +374,9 @@ public class Spielfeld {
 		
 	/**
 	 * Kopiert das Spielfeld und gibt es zurueck.
+	 * Diese Methode wird dafuer verwendet, um dem Algorithmus eine Kopie des jeweiligen aktuellen Spielfelds
+	 * zurueckzuliefern. Hier wird zunaechst ein neues Spielfeld mit den selben Dimensionen des zu kopierenden Spielfeldes erzeugt.
+	 * Dann wird Zelle fuer Zelle von oben links nach unten rechts vom Original in die Kopie kopiert. 
 	 * @return Gibt das kopierte Spielfeld zurueck
 	 * @author 7866387, 2788085
 	 */
